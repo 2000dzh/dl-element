@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "pnpm --filter @dl-element/paly dev",
     "docs:dev": "pnpm --filter @dl-element/docs dev",
-    "docs:build": "pnpm --filter @dl-element/docs build"
+    "docs:build": "pnpm --filter @dl-element/docs build",
+    "test": "echo \"todo\""
   },
   "keywords": [],
   "author": "",
