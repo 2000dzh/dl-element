@@ -1,5 +1,5 @@
+import { fn, within, userEvent, expect } from '@storybook/test';
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-import { fn } from '@storybook/test';
 
 import { DlButton } from 'dl-element';
 
@@ -76,6 +76,12 @@ export const Default: Story & { args: { content: string } } = {
 			`<dl-button v-bind="args">{{args.content}}</dl-button>`
 		),
 	}),
+	play: async ({ canvasElement, args }) => {
+		const canvas = within(canvasElement);
+		await userEvent.click(canvas.getByRole('button'));
+
+		expect(args.onClick).toHaveBeenCalled();
+	},
 };
 
 export default meta;

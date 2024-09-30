@@ -27,7 +27,11 @@ const iconStyle = computed(() => ({
 }));
 
 const handleBtnClick = (e: MouseEvent) => emits('click', e);
-const handleBtnClickThrottle = throttle(handleBtnClick, props.throttleDuration);
+const handleBtnClickThrottle = throttle(
+	handleBtnClick,
+	props.throttleDuration,
+	{ trailing: false }
+);
 const handleClick = (e: MouseEvent) =>
 	props.useThrottle ? handleBtnClickThrottle(e) : handleBtnClick(e);
 
@@ -61,11 +65,15 @@ defineExpose<ButtonInstance>({
 					class="loading-icon"
 					:style="iconStyle"
 					:icon="loadingIcon ?? 'spinner'"
+					size="1x"
 					spin
 				/>
 			</slot>
 		</template>
-		<slot v-if="$slots.default"></slot>
+		<template v-else>
+			<DlIcon v-if="icon" :icon="icon" size="1x" :style="iconStyle" />
+		</template>
+		<slot></slot>
 	</component>
 </template>
 

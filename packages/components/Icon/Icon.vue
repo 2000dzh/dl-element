@@ -18,7 +18,7 @@ const customStyles = computed(() => ({
 
 <template>
 	<i
-		class="el-icon"
+		class="dl-icon"
 		:class="[`dl-icon-${type}`]"
 		:style="customStyles"
 		v-bind="$attrs"
