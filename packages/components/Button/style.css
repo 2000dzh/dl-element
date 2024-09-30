@@ -1,0 +1,199 @@
+.dl-button-group {
+  --dl-button-group-border-color: var(--dl-border-color-lighter);
+}
+.dl-button {
+  --dl-button-font-weight: var(--dl-font-weight-primary);
+  --dl-button-border-color: var(--dl-border-color);
+  --dl-button-bg-color: var(--dl-fill-color-blank);
+  --dl-button-text-color: var(--dl-text-color-regular);
+  --dl-button-disabled-text-color: var(--dl-disabled-text-color);
+  --dl-button-disabled-bg-color: var(--dl-fill-color-blank);
+  --dl-button-disabled-border-color: var(--dl-border-color-light);
+  --dl-button-hover-text-color: var(--dl-color-primary);
+  --dl-button-hover-bg-color: var(--dl-color-primary-light-9);
+  --dl-button-hover-border-color: var(--dl-color-primary-light-7);
+  --dl-button-active-text-color: var(--dl-button-hover-text-color);
+  --dl-button-active-border-color: var(--dl-color-primary);
+  --dl-button-active-bg-color: var(--dl-button-hover-bg-color);
+  --dl-button-outline-color: var(--dl-color-primary-light-5);
+  --dl-button-active-color: var(--dl-text-color-primary);
+}
+
+.dl-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--dl-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--dl-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--dl-button-bg-color);
+  border: var(--dl-border);
+  border-color: var(--dl-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--dl-font-size-base);
+  border-radius: var(--dl-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--dl-button-hover-text-color);
+    border-color: var(--dl-button-hover-border-color);
+    background-color: var(--dl-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--dl-button-active-text-color);
+    border-color: var(--dl-button-active-border-color);
+    background-color: var(--dl-button-active-bg-color);
+    outline: none;
+  }
+  /*plain*/
+  &.is-plain {
+    --dl-button-hover-text-color: var(--dl-color-primary);
+    --dl-button-hover-bg-color: var(--dl-fill-color-blank);
+    --dl-button-hover-border-color: var(--dl-color-primary);
+  }
+  /*round*/
+  &.is-round {
+    border-radius: var(--dl-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-loading,
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--dl-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--dl-button-disabled-bg-color);
+    border-color: var(--dl-button-disabled-border-color);
+  }
+  [class*='er-icon'] {
+    width: 1em;
+    height: 1em;
+  }
+}
+@each $val in primary, success, warning, info, danger {
+  .dl-button--$(val) {
+    --dl-button-text-color: var(--dl-color-white);
+    --dl-button-bg-color: var(--dl-color-$(val));
+    --dl-button-border-color: var(--dl-color-$(val));
+    --dl-button-outline-color: var(--dl-color-$(val)-light-5);
+    --dl-button-active-color: var(--dl-color-$(val)-dark-2);
+    --dl-button-hover-text-color: var(--dl-color-white);
+    --dl-button-hover-bg-color: var(--dl-color-$(val)-light-3);
+    --dl-button-hover-border-color: var(--dl-color-$(val)-light-3);
+    --dl-button-active-bg-color: var(--dl-color-$(val)-dark-2);
+    --dl-button-active-border-color: var(--dl-color-$(val)-dark-2);
+    --dl-button-disabled-text-color: var(--dl-color-white);
+    --dl-button-disabled-bg-color: var(--dl-color-$(val)-light-5);
+    --dl-button-disabled-border-color: var(--dl-color-$(val)-light-5);
+  }
+  .dl-button--$(val).is-plain {
+    --dl-button-text-color: var(--dl-color-$(val));
+    --dl-button-bg-color: var(--dl-color-$(val)-light-9);
+    --dl-button-border-color: var(--dl-color-$(val)-light-5);
+    --dl-button-hover-text-color: var(--dl-color-white);
+    --dl-button-hover-bg-color: var(--dl-color-$(val));
+    --dl-button-hover-border-color: var(--dl-color-$(val));
+    --dl-button-active-text-color: var(--dl-color-white);
+
+    --dl-button-disabled-text-color: var(--dl-color-$(val)-light-5);
+    --dl-button-disabled-bg-color: var(--dl-color-$(val)-light-9);
+    --dl-button-disabled-border-color: var(--dl-color-$(val)-light-8);
+  }
+}
+.dl-button--large {
+  --dl-button-size: 40px;
+  height: var(--dl-button-size);
+  padding: 12px 19px;
+  font-size: var(--dl-font-size-base);
+  border-radius: var(--dl-border-radius-base);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 12px;
+  }
+}
+.dl-button--small {
+  --dl-button-size: 24px;
+  height: var(--dl-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--dl-border-radius-base) - 1px);
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 5px;
+  }
+  [class*='er-icon'] {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.dl-button-group {
+  display: inline-block;
+  vertical-align: middle;
+
+  &::after {
+    clear: both;
+  }
+  & > :deep(.dl-button){
+    float: left;
+    position: relative;
+    margin-left: 0;
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      border-right-color: var(--dl-button-group-border-color);
+    }
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0; 
+      border-left-color: var(--dl-button-group-border-color);
+    }
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      border-left-color: var(--dl-button-group-border-color);
+      border-right-color: var(--dl-button-group-border-color);
+    }
+    &:not(:last-child) {
+      margin-right: -1px;
+    }
+    &:first-child:last-child {
+      border-top-right-radius: var(--dl-border-radius-base);
+      border-bottom-right-radius: var(--dl-border-radius-base);
+      border-top-left-radius: var(--dl-border-radius-base);
+      border-bottom-left-radius: var(--dl-border-radius-base);
+
+      &.is-round {
+        border-radius: var(--dl-border-radius-round);
+      }
+
+      &.is-circle {
+        border-radius: 50%;
+      }
+    }
+  }
+}

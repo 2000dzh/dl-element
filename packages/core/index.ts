@@ -1,8 +1,8 @@
 import { makeInstaller } from '@dl-element/utils';
-import components from './components.ts';
+import componens from './componens.ts';
 import '@dl-element/theme/index.css'
 
-const installer = makeInstaller(components);
+const installer = makeInstaller(componens);
 
-export * from './components.ts';
+export * from '@dl-element/components';
 export default installer

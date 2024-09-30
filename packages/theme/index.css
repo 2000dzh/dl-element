@@ -1,1 +1,67 @@
 @import './reset.css';
+
+:root {
+  /* colors */
+  --dl-color-white: #ffffff;
+  --dl-color-black: #000000;
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
+  --dl-bg-color: #ffffff;
+  --dl-bg-color-page: #f2f3f5;
+  --dl-bg-color-overlay: #ffffff;
+  --dl-text-color-primary: #303133;
+  --dl-text-color-regular: #606266;
+  --dl-text-color-secondary: #909399;
+  --dl-text-color-placeholder: #a8abb2;
+  --dl-text-color-disabled: #c0c4cc;
+  --dl-border-color: #dcdfe6;
+  --dl-border-color-light: #e4e7ed;
+  --dl-border-color-lighter: #ebeef5;
+  --dl-border-color-extra-light: #f2f6fc;
+  --dl-border-color-dark: #d4d7de;
+  --dl-border-color-darker: #cdd0d6;
+  --dl-fill-color: #f0f2f5;
+  --dl-fill-color-light: #f5f7fa;
+  --dl-fill-color-lighter: #fafafa;
+  --dl-fill-color-extra-light: #fafcff;
+  --dl-fill-color-dark: #ebedf0;
+  --dl-fill-color-darker: #e6e8eb;
+  --dl-fill-color-blank: #ffffff;
+  
+  @each $val, $color in var(--colors) {
+    --dl-color-$(val): $(color);
+    @for $i from 3 to 9 {
+      --dl-color-$(val)-light-$(i): mix(#fff, $(color), 0.$(i));
+    }
+    --dl-color-$(val)-dark-2: mix(#000, $(color), 0.2);
+  }
+
+  /* border */
+  --dl-border-width: 1px;
+  --dl-border-style: solid;
+  --dl-border-color-hover: var(--dl-text-color-disabled);
+  --dl-border: var(--dl-border-width) var(--dl-border-style) var(--dl-border-color);
+  --dl-border-radius-base: 4px;
+  --dl-border-radius-small: 2px;
+  --dl-border-radius-round: 20px;
+  --dl-border-radius-circle: 100%;
+
+  /*font*/
+  --dl-font-size-extra-large: 20px;
+  --dl-font-size-large: 18px;
+  --dl-font-size-medium: 16px;
+  --dl-font-size-base: 14px;
+  --dl-font-size-small: 13px;
+  --dl-font-size-extra-small: 12px;
+  --dl-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
+  --dl-font-weight-primary: 500;
+
+  /*disabled*/
+  --dl-disabled-bg-color: var(--dl-fill-color-light);
+  --dl-disabled-text-color: var(--dl-text-color-placeholder);
+  --dl-disabled-border-color: var(--dl-border-color-light);
+
+  /*animation*/
+  --dl-transition-duration: 0.4s;
+  --dl-transition-duration-fast: 0.2s;
+}
