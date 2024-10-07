@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watch, computed, inject, ref } from 'vue';
+import { computed, inject, ref } from 'vue';
 import { throttle } from 'lodash-es';
 import DlIcon from '../Icon/Icon.vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants.ts';
@@ -67,7 +67,7 @@ defineExpose<ButtonInstance>({
 	>
 		<template v-if="loading">
 			<slot name="loading">
-				<DlIcon
+				<dl-icon
 					class="loading-icon"
 					:style="iconStyle"
 					:icon="loadingIcon ?? 'spinner'"
@@ -77,12 +77,12 @@ defineExpose<ButtonInstance>({
 			</slot>
 		</template>
 		<template v-else>
-			<DlIcon v-if="icon" :icon="icon" size="1x" :style="iconStyle" />
+			<dl-icon v-if="icon" :icon="icon" size="1x" :style="iconStyle" />
 		</template>
 		<slot></slot>
 	</component>
 </template>
 
 <style scoped>
-@import url('./style.css');
+@import './style.css';
 </style>

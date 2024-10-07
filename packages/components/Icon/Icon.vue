@@ -27,4 +27,6 @@ const customStyles = computed(() => ({
 	</i>
 </template>
 
-<style scoped src="./style.css"></style>
+<style scoped>
+@import "./style.css";
+</style>

@@ -1,7 +1,6 @@
 import { fn, within, userEvent, expect } from '@storybook/test';
-import { DlButton,DlButtonGroup } from 'dl-element';
+import { DlButton, DlButtonGroup } from 'dl-element';
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
-
 
 type Story = StoryObj<typeof DlButton> & { argTypes: ArgTypes };
 
@@ -85,80 +84,80 @@ export const Default: Story & { args: { content: string } } = {
 };
 
 export const Circle: Story & { args: { icon: string } } = {
-  argTypes: {},
-  args: {
-    icon: "search",
-  },
-  render: (args) => ({
-    components: { DlButton },
-    setup() {
-      return { args };
-    },
-    template: container(`
+	argTypes: {},
+	args: {
+		icon: 'search',
+	},
+	render: (args) => ({
+		components: { DlButton },
+		setup() {
+			return { args };
+		},
+		template: container(`
       <dl-button circle v-bind="args"/>
     `),
-  }),
-  play: async ({ canvasElement, args, step }) => {
-    const canvas = within(canvasElement);
-    await step("click button", async () => {
-      await userEvent.click(canvas.getByRole("button"));
-    });
+	}),
+	play: async ({ canvasElement, args, step }) => {
+		const canvas = within(canvasElement);
+		await step('click button', async () => {
+			await userEvent.click(canvas.getByRole('button'));
+		});
 
-    expect(args.onClick).not.toHaveBeenCalled();
-  },
+		expect(args.onClick).not.toHaveBeenCalled();
+	},
 };
 
 Circle.parameters = {};
 
 export const Group: Story & { args: { content1: string; content2: string } } = {
-  argTypes: {
-    groupType: {
-      control: { type: "select" },
-      options: ["primary", "success", "warning", "danger", "info", ""],
-    },
-    groupSize: {
-      control: { type: "select" },
-      options: ["large", "default", "small", ""],
-    },
-    groupDisabled: {
-      control: "boolean",
-    },
-    content1: {
-      control: { type: "text" },
-      defaultValue: "Button1",
-    },
-    content2: {
-      control: { type: "text" },
-      defaultValue: "Button2",
-    },
-  },
-  args: {
-    round: true,
-    content1: "Button1",
-    content2: "Button2",
-  },
-  render: (args) => ({
-    components: { DlButton, DlButtonGroup },
-    setup() {
-      return { args };
-    },
-    template: container(`
+	argTypes: {
+		groupType: {
+			control: { type: 'select' },
+			options: ['primary', 'success', 'warning', 'danger', 'info', ''],
+		},
+		groupSize: {
+			control: { type: 'select' },
+			options: ['large', 'default', 'small', ''],
+		},
+		groupDisabled: {
+			control: 'boolean',
+		},
+		content1: {
+			control: { type: 'text' },
+			defaultValue: 'Button1',
+		},
+		content2: {
+			control: { type: 'text' },
+			defaultValue: 'Button2',
+		},
+	},
+	args: {
+		round: true,
+		content1: 'Button1',
+		content2: 'Button2',
+	},
+	render: (args) => ({
+		components: { DlButton, DlButtonGroup },
+		setup() {
+			return { args };
+		},
+		template: container(`
        <dl-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
          <dl-button v-bind="args">{{args.content1}}</dl-button>
          <dl-button v-bind="args">{{args.content2}}</dl-button>
        </dl-button-group>
     `),
-  }),
-  play: async ({ canvasElement, args, step }) => {
-    const canvas = within(canvasElement);
-    await step("click btn1", async () => {
-      await userEvent.click(canvas.getByText("Button1"));
-    });
-    await step("click btn2", async () => {
-      await userEvent.click(canvas.getByText("Button2"));
-    });
-    expect(args.onClick).toHaveBeenCalled();
-  },
+	}),
+	play: async ({ canvasElement, args, step }) => {
+		const canvas = within(canvasElement);
+		await step('click btn1', async () => {
+			await userEvent.click(canvas.getByText('Button1'));
+		});
+		await step('click btn2', async () => {
+			await userEvent.click(canvas.getByText('Button2'));
+		});
+		expect(args.onClick).toHaveBeenCalled();
+	},
 };
 
 export default meta;
