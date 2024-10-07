@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { watch, computed, inject, ref } from 'vue';
 import { throttle } from 'lodash-es';
 import DlIcon from '../Icon/Icon.vue';
+import { BUTTON_GROUP_CTX_KEY } from './constants.ts';
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types.ts';
 
 defineOptions({
@@ -17,8 +18,13 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 const emits = defineEmits<ButtonEmits>();
 const slots = defineSlots();
 
+const ctx = inject(BUTTON_GROUP_CTX_KEY, {});
+
 const _ref = ref<HTMLButtonElement>();
 
+const size = computed(() => ctx?.size ?? (props.size || ''));
+const type = computed(() => ctx?.type ?? (props.type || ''));
+const disabled = computed(() => props.disabled || !!ctx?.disabled);
 const comType = computed(() =>
 	props.tag === 'button' ? props.nativeType : null
 );

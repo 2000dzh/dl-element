@@ -1,5 +1,5 @@
-import { defineConfig as defineViteConfig, mergeConfig } from 'vite';
-import { defineConfig as defineVitestConfig } from 'vitest/config';
+/// <reference types="vitest" />
+import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
@@ -12,14 +12,10 @@ import vueJsx from '@vitejs/plugin-vue-jsx';
 // https://cloud.tencent.com/developer/ask/sof/106913760
 // 我的解决方案删除 .yaml node_modules 重新安装依赖
 
-const viteConfig = defineViteConfig({
-	plugins: [vue(), vueJsx()]
-});
-
-const vitestConfig = defineVitestConfig({
+export default defineConfig({
+	plugins: [vue(), vueJsx()],
 	test: {
 		globals: true,
 		environment: 'jsdom',
 	},
 });
-export default mergeConfig(viteConfig, vitestConfig);

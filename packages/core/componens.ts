@@ -1,4 +1,4 @@
-import { DlButton, DlIcon } from '@dl-element/components';
+import { DlButton, DlButtonGroup, DlIcon } from '@dl-element/components';
 import type { Plugin } from 'vue';
 
-export default [DlButton, DlIcon] as Array<Plugin>;
+export default [DlButton, DlButtonGroup, DlIcon] as Array<Plugin>;
