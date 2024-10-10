@@ -4,8 +4,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import componens from './componens.ts';
 import '@dl-element/theme/index.css';
 
-library.add(fas)
+library.add(fas);
 const installer = makeInstaller(componens);
 
-export * from '../components';
+export * from '@dl-element/components';
 export default installer;

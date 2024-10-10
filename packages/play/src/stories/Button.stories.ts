@@ -1,5 +1,6 @@
 import { fn, within, userEvent, expect } from '@storybook/test';
 import { DlButton, DlButtonGroup } from 'dl-element';
+import 'dl-element/dist/theme/Button.css'
 import type { Meta, StoryObj, ArgTypes } from '@storybook/vue3';
 
 type Story = StoryObj<typeof DlButton> & { argTypes: ArgTypes };

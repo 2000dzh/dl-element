@@ -1,4 +1,5 @@
 import { DlCollapse, DlCollapseItem } from 'dl-element';
+import 'dl-element/dist/theme/Collapse.css'
 import type { Meta, StoryObj } from '@storybook/vue3';
 
 type Story = StoryObj<typeof DlCollapse>;
