@@ -165,7 +165,7 @@ describe('Collapse.vue', () => {
 			`
         [
           [
-            [DlUIError: [DlCollapse] accordion mode should only have one active item],
+            [DlUIError: [DlCollapse]:accordion mode should only have one active item],
           ],
         ]
       `

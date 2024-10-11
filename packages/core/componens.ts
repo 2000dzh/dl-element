@@ -4,6 +4,7 @@ import {
 	DlIcon,
 	DlCollapse,
 	DlCollapseItem,
+  DlAlert
 } from '@dl-element/components';
 import type { Plugin } from 'vue';
 
@@ -13,4 +14,5 @@ export default [
 	DlIcon,
 	DlCollapse,
 	DlCollapseItem,
+  DlAlert
 ] as Array<Plugin>;
