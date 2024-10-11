@@ -6,7 +6,7 @@ import { includes, delay, defer } from 'lodash-es';
 import shell from 'shelljs';
 import dts from 'vite-plugin-dts';
 import terser from '@rollup/plugin-terser';
-import myHooks from './hooksPlugin';
+import myHooks from '../hooksPlugin';
 
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = process.env.NODE_ENV === 'development';
@@ -81,7 +81,7 @@ export default defineConfig({
 		// 启用/禁用 CSS 代码拆分
 		cssCodeSplit: true,
 		lib: {
-			entry: resolve(__dirname, './index.ts'),
+			entry: resolve(__dirname, '../index.ts'),
 			name: 'DlElement',
 			fileName: 'index',
 			formats: ['es'],

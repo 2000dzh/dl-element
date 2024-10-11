@@ -1,12 +1,12 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'node:path';
-import { readFileSync } from 'node:fs';
+import { readFile } from 'node:fs';
 import shell from 'shelljs';
-import { delay } from 'lodash-es';
+import { defer, delay } from 'lodash-es';
 import vue from '@vitejs/plugin-vue';
 import terser from '@rollup/plugin-terser';
 import { compression } from 'vite-plugin-compression2';
-import myHooks from './hooksPlugin';
+import myHooks from '../hooksPlugin';
 
 const TRY_MOVE_STYLES_DELAY = 800 as const;
 
@@ -15,12 +15,13 @@ const isDev = process.env.NODE_ENV === 'development';
 const isTest = process.env.NODE_ENV === 'test';
 
 function moveStyles() {
-	try {
-		readFileSync('./dist/umd/index.css.gz');
-		shell.cp('./dist/umd/index.css', './dist/index.css');
-	} catch {
-		delay(moveStyles, TRY_MOVE_STYLES_DELAY);
-	}
+	readFile('./dist/umd/index.css.gz', (err) => {
+		if (err) {
+			delay(moveStyles, TRY_MOVE_STYLES_DELAY);
+			return;
+		}
+		defer(() => shell.cp('./dist/umd/index.css', './dist/index.css'));
+	});
 }
 
 export default defineConfig({
@@ -51,7 +52,7 @@ export default defineConfig({
 		// 开启代码混淆
 		minify: false, // 这里关闭默认混淆,自己用插件实现
 		lib: {
-			entry: resolve(__dirname, './index.ts'),
+			entry: resolve(__dirname, '../index.ts'),
 			name: 'DlElement',
 			fileName: 'index',
 			formats: ['umd'],
