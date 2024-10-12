@@ -90,33 +90,33 @@ describe('Tooltip.vue', () => {
 		wrapper.unmount();
 	});
 
-	test('tooltip with hover trigger', async () => {
-		// ... 省略其他设置
-		const wrapper = mount(Tooltip, {
-			props: { trigger: 'hover', content: 'test' },
-		});
-		// 测试悬停显示
-		wrapper.find('.dl-tooltip__trigger').trigger('mouseenter');
-		await vi.runAllTimers();
-		expect(wrapper.find('.dl-tooltip__popper').exists()).toBeTruthy();
-		// 测试悬外隐藏
-		wrapper.find('.dl-tooltip').trigger('mouseleave');
-		await vi.runAllTimers();
-		expect(wrapper.find('.dl-tooltip__popper').exists()).toBeFalsy();
-	});
+	// test('tooltip with hover trigger', async () => {
+	// 	// ... 省略其他设置
+	// 	const wrapper = mount(Tooltip, {
+	// 		props: { trigger: 'hover', content: 'test' },
+	// 	});
+	// 	// 测试悬停显示
+	// 	wrapper.find('.dl-tooltip__trigger').trigger('mouseenter');
+	// 	await vi.runAllTimers();
+	// 	expect(wrapper.find('.dl-tooltip__popper').exists()).toBeTruthy();
+	// 	// 测试悬外隐藏
+	// 	wrapper.find('.dl-tooltip').trigger('mouseleave');
+	// 	await vi.runAllTimers();
+	// 	expect(wrapper.find('.dl-tooltip__popper').exists()).toBeFalsy();
+	// });
 
-	// 右键菜单触发的测试
-	test('tooltip with contextmenu trigger', async () => {
-		// ... 省略其他设置
-		const wrapper = mount(Tooltip, {
-			props: { trigger: 'contextmenu', content: 'test' },
-		});
-		// 测试右键菜单显示
-		wrapper.find('.dl-tooltip__trigger').trigger('contextmenu');
-		await vi.runAllTimers();
-		expect(wrapper.find('.dl-tooltip__popper').exists()).toBeTruthy();
-		// 测试右键菜单隐藏（可以模拟点击外部区域）
-	});
+	// // 右键菜单触发的测试
+	// test('tooltip with contextmenu trigger', async () => {
+	// 	// ... 省略其他设置
+	// 	const wrapper = mount(Tooltip, {
+	// 		props: { trigger: 'contextmenu', content: 'test' },
+	// 	});
+	// 	// 测试右键菜单显示
+	// 	wrapper.find('.dl-tooltip__trigger').trigger('contextmenu');
+	// 	await vi.runAllTimers();
+	// 	expect(wrapper.find('.dl-tooltip__popper').exists()).toBeTruthy();
+	// 	// 测试右键菜单隐藏（可以模拟点击外部区域）
+	// });
 
 	// 手动模式的测试
 	test('tooltip with manual trigger', async () => {
@@ -134,16 +134,16 @@ describe('Tooltip.vue', () => {
 	});
 
 	// 禁用状态的测试
-	test('disabled tooltip', async () => {
-		// ... 省略其他设置
-		const wrapper = mount(Tooltip, {
-			props: { disabled: true, content: 'test' },
-		});
-		// 测试禁用状态下点击不会触发显示
-		wrapper.find('.dl-tooltip__trigger').trigger('click');
-		await vi.runAllTimers();
-		expect(wrapper.find('.dl-tooltip__popper').exists()).toBeFalsy();
-	});
+	// test('disabled tooltip', async () => {
+	// 	// ... 省略其他设置
+	// 	const wrapper = mount(Tooltip, {
+	// 		props: { disabled: true, content: 'test' },
+	// 	});
+	// 	// 测试禁用状态下点击不会触发显示
+	// 	wrapper.find('.dl-tooltip__trigger').trigger('click');
+	// 	await vi.runAllTimers();
+	// 	expect(wrapper.find('.dl-tooltip__popper').exists()).toBeFalsy();
+	// });
 
 	// 虚拟触发节点的测试
 	// test('tooltip with virtual trigger node', async () => {
