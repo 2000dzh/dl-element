@@ -2,6 +2,7 @@
 import { defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
+import { resolve } from 'node:path';
 
 // vitest 类型问题
 // https://stackoverflow.com/questions/72146352/vitest-defineconfig-test-does-not-exist-in-type-userconfigexport
@@ -22,11 +23,12 @@ export default defineConfig({
 	test: {
 		globals: true,
 		environment: 'jsdom',
-    exclude: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/true/coverage/**',
-      '**/coverage/**',
-    ]
+		exclude: [
+			'**/node_modules/**',
+			'**/dist/**',
+			'**/true/coverage/**',
+			'**/coverage/**',
+		],
+		setupFiles: [resolve(__dirname, './vitest.setup.ts')],
 	},
 });
