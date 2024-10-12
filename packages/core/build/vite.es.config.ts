@@ -5,12 +5,12 @@ import { readdir, readdirSync } from 'node:fs';
 import { includes, delay, defer } from 'lodash-es';
 import shell from 'shelljs';
 import dts from 'vite-plugin-dts';
-import terser from '@rollup/plugin-terser';
+// import terser from '@rollup/plugin-terser';
 import myHooks from '../hooksPlugin';
 
-const isProd = process.env.NODE_ENV === 'production';
-const isDev = process.env.NODE_ENV === 'development';
-const isTest = process.env.NODE_ENV === 'test';
+// const isProd = process.env.NODE_ENV === 'production';
+// const isDev = process.env.NODE_ENV === 'development';
+// const isTest = process.env.NODE_ENV === 'test';
 
 const TRY_MOVE_STYLES_DELAY = 800 as const;
 
@@ -42,33 +42,33 @@ export default defineConfig({
 			tsconfigPath: '../../tsconfig.build.json',
 			outDir: 'dist/types',
 		}),
-		terser({
-			compress: {
-				sequences: isProd,
-				arguments: isProd,
-				drop_console: isProd && ['log'],
-				drop_debugger: isProd,
-				passes: isProd ? 4 : 1,
-				global_defs: {
-					'@DEV': JSON.stringify(isDev),
-					'@PROD': JSON.stringify(isProd),
-					'@TEST': JSON.stringify(isTest),
-				},
-			},
-			format: {
-				semicolons: false,
-				shorthand: isProd,
-				braces: !isProd,
-				beautify: !isProd,
-				comments: !isProd,
-			},
-			mangle: {
-				toplevel: isProd,
-				eval: isProd,
-				keep_classnames: isDev,
-				keep_fnames: isDev,
-			},
-		}),
+		// terser({
+		// 	compress: {
+		// 		sequences: isProd,
+		// 		arguments: isProd,
+		// 		drop_console: isProd && ['log'],
+		// 		drop_debugger: isProd,
+		// 		passes: isProd ? 4 : 1,
+		// 		global_defs: {
+		// 			'@DEV': JSON.stringify(isDev),
+		// 			'@PROD': JSON.stringify(isProd),
+		// 			'@TEST': JSON.stringify(isTest),
+		// 		},
+		// 	},
+		// 	format: {
+		// 		semicolons: false,
+		// 		shorthand: isProd,
+		// 		braces: !isProd,
+		// 		beautify: !isProd,
+		// 		comments: !isProd,
+		// 	},
+		// 	mangle: {
+		// 		toplevel: isProd,
+		// 		eval: isProd,
+		// 		keep_classnames: isDev,
+		// 		keep_fnames: isDev,
+		// 	},
+		// }),
 		myHooks({
 			rmFiles: ['./dist/es', './dist/theme', './dist/types'],
 			afterBuild: moveStyles,
@@ -77,7 +77,7 @@ export default defineConfig({
 	build: {
 		outDir: 'dist/es',
 		// 开启代码混淆
-		minify: false, // 这里关闭默认混淆,自己用插件实现
+		minify: true, 
 		// 启用/禁用 CSS 代码拆分
 		cssCodeSplit: true,
 		lib: {
@@ -87,6 +87,7 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
+      // 去除外部依赖,不包括在最终的打包文件中
 			external: [
 				'vue',
 				'@fortawesome/fontawesome-svg-core',

@@ -4,15 +4,15 @@ import { readFile } from 'node:fs';
 import shell from 'shelljs';
 import { defer, delay } from 'lodash-es';
 import vue from '@vitejs/plugin-vue';
-import terser from '@rollup/plugin-terser';
+// import terser from '@rollup/plugin-terser';
 import { compression } from 'vite-plugin-compression2';
 import myHooks from '../hooksPlugin';
 
 const TRY_MOVE_STYLES_DELAY = 800 as const;
 
-const isProd = process.env.NODE_ENV === 'production';
-const isDev = process.env.NODE_ENV === 'development';
-const isTest = process.env.NODE_ENV === 'test';
+// const isProd = process.env.NODE_ENV === 'production';
+// const isDev = process.env.NODE_ENV === 'development';
+// const isTest = process.env.NODE_ENV === 'test';
 
 function moveStyles() {
 	readFile('./dist/umd/index.css.gz', (err) => {
@@ -30,18 +30,18 @@ export default defineConfig({
 		compression({
 			include: /.(cjs|css)$/i,
 		}),
-		terser({
-			compress: {
-				drop_console: ['log'],
-				drop_debugger: true,
-				passes: 4,
-				global_defs: {
-					'@DEV': JSON.stringify(isDev),
-					'@PROD': JSON.stringify(isProd),
-					'@TEST': JSON.stringify(isTest),
-				},
-			},
-		}),
+		// terser({
+		// 	compress: {
+		// 		drop_console: ['log'],
+		// 		drop_debugger: true,
+		// 		passes: 4,
+		// 		global_defs: {
+		// 			'@DEV': JSON.stringify(isDev),
+		// 			'@PROD': JSON.stringify(isProd),
+		// 			'@TEST': JSON.stringify(isTest),
+		// 		},
+		// 	},
+		// }),
 		myHooks({
 			rmFiles: ['./dist/umd', './dist/index.css'],
 			afterBuild: moveStyles,
@@ -50,7 +50,7 @@ export default defineConfig({
 	build: {
 		outDir: 'dist/umd',
 		// 开启代码混淆
-		minify: false, // 这里关闭默认混淆,自己用插件实现
+		minify: true, 
 		lib: {
 			entry: resolve(__dirname, '../index.ts'),
 			name: 'DlElement',
@@ -58,8 +58,10 @@ export default defineConfig({
 			formats: ['umd'],
 		},
 		rollupOptions: {
+			// 去除外部依赖,不包括在最终的打包文件中
 			external: ['vue'],
 			output: {
+				// 指定导出模式
 				exports: 'named',
 				globals: {
 					vue: 'Vue',
