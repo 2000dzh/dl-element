@@ -1,7 +1,6 @@
 import { fn } from '@storybook/test';
-// import { DlTooltip } from 'dl-element';
-import DlTooltip from '../../../components/Tooltip/Tooltip.vue'
-// import 'dl-element/dist/theme/Tooltip.css';
+import { DlTooltip } from 'dl-element';
+import 'dl-element/dist/theme/Tooltip.css';
 import type { StoryObj, Meta } from '@storybook/vue3';
 
 
