@@ -3,6 +3,7 @@ import { computed, onUnmounted, ref, watch, watchEffect } from 'vue';
 import { debounce, isFunction, isNil, bind } from 'lodash-es';
 import { createPopper } from '@popperjs/core';
 import { useClickOutside } from '@dl-element/hooks';
+import { useEvenstToTiggerNode } from './useEventsToTiggerNode';
 import type { DebouncedFunc } from 'lodash-es';
 import type { Instance } from '@popperjs/core';
 import type { TooltipProps, TooltipEmits, TooltipInstance } from './types';
@@ -11,7 +12,12 @@ defineOptions({
 	name: 'DlTooltip',
 });
 
-const props = withDefaults(defineProps<TooltipProps>(), {
+interface _TooltipProps extends TooltipProps {
+	virtualRef?: HTMLElement | void;
+	virtualTriggering?: boolean;
+}
+
+const props = withDefaults(defineProps<_TooltipProps>(), {
 	placement: 'bottom',
 	trigger: 'hover',
 	transition: 'fade',
@@ -27,8 +33,16 @@ const dropdownEvents = ref<Record<string, EventListener>>({});
 
 const containerNode = ref<HTMLElement>();
 const popperNode = ref<HTMLElement>();
-const triggerNode = ref<HTMLElement>();
+const _triggerNode = ref<HTMLElement>();
 
+const triggerNode = computed(() => {
+	let node = _triggerNode.value;
+	if (props.virtualTriggering) {
+		node = props.virtualRef ?? node;
+	}
+
+	return node;
+});
 const popperOptions = computed(() => ({
 	placement: props.placement,
 	modifiers: [
@@ -75,7 +89,7 @@ function togglePopper() {
 	visible.value ? closeFinal() : openFinal();
 }
 
-function setVisibel(val: boolean) {
+function setVisible(val: boolean) {
 	if (props.disabled) {
 		return;
 	}
@@ -129,7 +143,7 @@ function destroyPopperInstance() {
 const show: TooltipInstance['show'] = openFinal;
 const hide: TooltipInstance['hide'] = function () {
 	cancelOpenDebounce();
-	setVisibel(false);
+	setVisible(false);
 };
 
 watch(
@@ -167,7 +181,7 @@ watch(
 	() => props.trigger,
 	() => {
 		cancelOpenDebounce();
-		setVisibel(false);
+		setVisible(false);
 		resetEvents();
 	}
 );
@@ -177,14 +191,19 @@ watchEffect(() => {
 		attachEvents();
 	}
 
-	openDebounce = debounce(bind(setVisibel, null, true), openDelay.value);
-	closeDebounce = debounce(bind(setVisibel, null, false), closeDelay.value);
+	openDebounce = debounce(bind(setVisible, null, true), openDelay.value);
+	closeDebounce = debounce(bind(setVisible, null, false), closeDelay.value);
 });
 
 useClickOutside(containerNode, () => {
 	emits('click-outside');
 	if (props.trigger === 'hover' || props.manual) return;
 	visible.value && closeFinal();
+});
+
+useEvenstToTiggerNode(props, triggerNode, events, () => {
+  cancelOpenDebounce()
+  setVisible(false)
 });
 
 onUnmounted(() => {
@@ -199,15 +218,15 @@ defineExpose<TooltipInstance>({
 
 <template>
 	<div class="dl-tooltip" ref="containerNode" v-on="outerEvents">
+		<slot v-if="virtualTriggering" name="default"></slot>
 		<div
-			class="er-tooltip__trigger"
-			ref="triggerNode"
+			class="dl-tooltip__trigger"
+			ref="_triggerNode"
 			v-on="events"
-			v-if="!virtualTriggering"
+			v-else
 		>
 			<slot></slot>
 		</div>
-		<slot name="default" v-else></slot>
 
 		<transition :name="transition" @after-leave="destroyPopperInstance">
 			<div
