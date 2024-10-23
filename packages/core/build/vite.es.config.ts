@@ -77,7 +77,7 @@ export default defineConfig({
 	build: {
 		outDir: 'dist/es',
 		// 开启代码混淆
-		minify: true, 
+		minify: true,
 		// 启用/禁用 CSS 代码拆分
 		cssCodeSplit: true,
 		lib: {
@@ -87,7 +87,7 @@ export default defineConfig({
 			formats: ['es'],
 		},
 		rollupOptions: {
-      // 去除外部依赖,不包括在最终的打包文件中
+			// 去除外部依赖,不包括在最终的打包文件中
 			external: [
 				'vue',
 				'@fortawesome/fontawesome-svg-core',
@@ -108,9 +108,12 @@ export default defineConfig({
 					) {
 						return 'theme/[name].[ext]';
 					}
+
 					return assetInfo.name as string;
 				},
 				manualChunks(id) {
+					// console.log(id);
+
 					if (id.includes('node_modules')) {
 						return 'vendor';
 					} else if (id.includes('/packages/hooks')) {

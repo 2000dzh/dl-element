@@ -1,4 +1,4 @@
-import { makeInstaller } from '@dl-element/utils';
+import makeInstaller from './defaults.ts';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import componens from './componens.ts';

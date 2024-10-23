@@ -34,6 +34,11 @@ export default defineConfig({
 				collapsed: false,
 				items: [{ text: 'Alert 提示', link: 'components/alert' }],
 			},
+			{
+				text: 'echarts地图',
+				collapsed: false,
+				items: [{ text: 'map', link: 'components/map' }],
+			},
 		],
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/2000dzh/dl-element' },

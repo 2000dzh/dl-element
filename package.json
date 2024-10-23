@@ -44,6 +44,7 @@
 		"@dl-element/hooks": "workspace:*",
 		"@dl-element/theme": "workspace:*",
 		"@dl-element/utils": "workspace:*",
+		"axios": "^1.7.7",
 		"dl-element": "workspace:*",
 		"lodash-es": "4.17.21",
 		"vue": "3.4.19"

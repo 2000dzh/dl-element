@@ -3,3 +3,4 @@ export * from './Button';
 export * from './Collapse';
 export * from './Alert';
 export * from './Tooltip';
+export * from './map';
