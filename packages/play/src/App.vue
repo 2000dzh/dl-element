@@ -1,6 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 const mapName = ref('江苏');
+const seriesData = [
+	{
+		name: '南京市',
+		value: 2112,
+	},
+	{
+		name: '苏州市',
+		value: 23,
+	},
+];
 </script>
 
 <template>
@@ -10,8 +20,8 @@ const mapName = ref('江苏');
 	<dl-alert type="info">Info alert</dl-alert>
 	<dl-alert type="warning">Warning alert</dl-alert>
 	<dl-alert type="danger">Error alert</dl-alert> -->
-	<div style="width: 400px; height: 400px">
-		<map1 v-model="mapName"></map1>
+	<div style="width: 900px; height: 800px">
+		<map1 v-model="mapName" :seriesData="seriesData"></map1>
 	</div>
 </template>
 

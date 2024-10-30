@@ -13,12 +13,12 @@ export default defineConfig({
 			}
 		],
 	},
-	server: {
-		proxy: {
-			'/dl-mapData': {
-				target: 'https://2000dzh.github.io/dl-element',
-				changeOrigin: true,
-			},
-		},
-	},
+	// server: {
+	// 	proxy: {
+	// 		'/dl-mapData': {
+	// 			target: 'https://2000dzh.github.io/dl-element',
+	// 			changeOrigin: true,
+	// 		},
+	// 	},
+	// },
 });

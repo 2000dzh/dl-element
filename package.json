@@ -46,6 +46,7 @@
 		"@dl-element/utils": "workspace:*",
 		"axios": "^1.7.7",
 		"dl-element": "workspace:*",
+		"echarts": "^5.5.1",
 		"lodash-es": "4.17.21",
 		"vue": "3.4.19"
 	}
