@@ -21,7 +21,8 @@ const seriesData = [
 	<dl-alert type="warning">Warning alert</dl-alert>
 	<dl-alert type="danger">Error alert</dl-alert> -->
 	<div style="width: 900px; height: 800px">
-		<map1 v-model="mapName" :seriesData="seriesData"></map1>
+		<!-- <map1 v-model="mapName" :seriesData="seriesData"></map1> -->
+		<dl-load-cure></dl-load-cure>
 	</div>
 </template>
 
