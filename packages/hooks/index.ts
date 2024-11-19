@@ -3,4 +3,9 @@ import useClickOutside from './useClickOutside';
 import useGlobelProperties from './useGlobelProperties';
 import useECharts from './useECharts';
 
-export { useClickOutside, useEventListener, useGlobelProperties, useECharts };
+export {
+	useClickOutside,
+	useEventListener,
+	useGlobelProperties,
+	useECharts
+};
