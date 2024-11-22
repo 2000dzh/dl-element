@@ -97,7 +97,7 @@ export class RefreshBrowserScript {
 		// 		this.skipRefresh();
 		// 		this.unbingEvent();
 		// 	});
-
+    alert('发现新版本点击更新')
 		this.refreshBrowser;
 	}
 
