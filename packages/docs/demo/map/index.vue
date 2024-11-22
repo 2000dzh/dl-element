@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 
-const mapName = ref('江苏')
+const mapName = ref('江苏');
 </script>
 
 <template>
 	<div>
-		<map1 v-model="mapName" ></map1>
+		<ClientOnly>
+			<map1 v-model="mapName"></map1>
+		</ClientOnly>
 	</div>
 </template>
 
