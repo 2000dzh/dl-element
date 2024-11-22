@@ -50,4 +50,10 @@ export default defineConfig({
 			md.use(componentPreview);
 		},
 	},
+
+	// vite: {
+	// 	define: {
+	// 		__version__: JSON.stringify({ a: 1 }),
+	// 	},
+	// },
 });

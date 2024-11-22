@@ -11,8 +11,9 @@ const versioned = (url: string) => {
 };
 
 export class RefreshBrowserScript {
-	url = '/version.json';
-	version = (window as any).__version__;
+	url = '/dl-element/version.json';
+  // @ts-ignore
+	version = __version__;
 	now = 0;
 	status = false;
 	__focus__fn__;
@@ -70,7 +71,7 @@ export class RefreshBrowserScript {
 	}
 
 	equalVersion(privite, resource) {
-		return privite.commitId === resource.commitId;
+		return privite.hashCommit === resource.hashCommit;
 	}
 
 	bindEvent() {
