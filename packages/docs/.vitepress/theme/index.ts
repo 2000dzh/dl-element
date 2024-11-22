@@ -2,6 +2,7 @@ import DefaultTheme from 'vitepress/theme';
 import DlElement from 'dl-element';
 import { ElementPlusContainer } from '@vitepress-demo-preview/component';
 import '@vitepress-demo-preview/component/dist/style.css';
+import { RefreshBrowserScript } from './refreshBrowserScript';
 import type { App } from 'vue';
 
 export default {
@@ -9,5 +10,8 @@ export default {
 	enhanceApp({ app }: { app: App }) {
 		app.component('demo-preview', ElementPlusContainer);
 		app.use(DlElement);
+		new RefreshBrowserScript();
 	},
 };
+
+

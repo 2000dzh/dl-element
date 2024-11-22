@@ -1,3 +1,5 @@
+import ResizeObserver from 'resize-observer-polyfill';
+
 export const GlobalResizeObserver = (() => {
 	const ATTR_NAME = 'dl-global-resizeobserver-key';
 
@@ -39,7 +41,6 @@ export const GlobalResizeObserver = (() => {
 			o.observe(element);
 		},
 		unobserve(element: Element) {
-     
 			if (!(element instanceof Element)) {
 				console.error('useResizeObserver, cannot observe non-Element.');
 				return;

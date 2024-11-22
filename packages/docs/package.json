@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "git-revision-webpack-plugin": "^5.0.0",
     "vitepress": "1.0.0-rc.44"
   },
   "dependencies": {

@@ -1,5 +1,5 @@
 import * as echarts from 'echarts/core';
-import { MapChart, ScatterChart } from 'echarts/charts';
+import { MapChart, ScatterChart, LineChart } from 'echarts/charts';
 import {
 	TitleComponent, // 标题组件
 	TooltipComponent, // 提示框组件
@@ -16,6 +16,7 @@ import { CanvasRenderer } from 'echarts/renderers';
 echarts.use([
 	MapChart,
 	ScatterChart,
+  LineChart,
 	TitleComponent,
 	TooltipComponent,
 	GridComponent,

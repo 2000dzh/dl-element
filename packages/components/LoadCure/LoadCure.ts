@@ -11,7 +11,7 @@ import { useGlobelProperties } from '@dl-element/hooks';
 import { definePropType, GlobalResizeObserver } from '@dl-element/utils';
 import type { SetupContext, ExtractPropTypes } from 'vue';
 import type { ECharts } from 'echarts/core';
-import type { lineData } from './type';
+import type { lineData, LoadCureOption } from './type';
 
 export const LoadCureProps = {
 	// 曲线数据
@@ -71,20 +71,8 @@ export function useLoadCure(
 
 	// 获取图标配置项
 	const getOptions = () => {
-		const options = {
-			xAxis: {
-				type: 'category',
-				data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-			},
-			yAxis: {
-				type: 'value',
-			},
-			series: [
-				{
-					data: [150, 230, 224, 218, 135, 147, 260],
-					type: 'line',
-				},
-			],
+		const options: LoadCureOption = {
+      animationDuration: 12,
 		};
 
 		return options;
