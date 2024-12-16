@@ -16,6 +16,9 @@ importers:
       axios:
         specifier: ^1.7.7
         version: 1.7.7
+      dayjs:
+        specifier: ^1.11.13
+        version: 1.11.13
       dl-element:
         specifier: workspace:*
         version: link:packages/core
@@ -92,6 +95,9 @@ importers:
       vite:
         specifier: 5.1.4
         version: 5.1.4(@types/node@20.11.20)
+      vite-bundle-analyzer:
+        specifier: ^0.13.1
+        version: 0.13.1
       vitest:
         specifier: 1.4.0
         version: 1.4.0(@types/node@20.11.20)(jsdom@24.0.0)
@@ -9363,6 +9369,10 @@ packages:
     dependencies:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
+
+  /vite-bundle-analyzer@0.13.1:
+    resolution: {integrity: sha512-471KXy0cq8L9voQnkLwintkDewhUDxSOUfUq5qgCXalORVmMt4W5JbcLVR6ybEHG6K83afs9/pD7LAlnJYS4mQ==}
+    dev: true
 
   /vite-node@1.4.0(@types/node@20.11.20):
     resolution: {integrity: sha512-VZDAseqjrHgNd4Kh8icYHWzTKSCZMhia7GyHfhtzLW33fZlG9SwsB6CEhgyVOWkJfJ2pFLrp/Gj1FSfAiqH9Lw==}

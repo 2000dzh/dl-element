@@ -37,6 +37,7 @@
 		"shelljs": "^0.8.5",
 		"typescript": "5.2.2",
 		"vite": "5.1.4",
+		"vite-bundle-analyzer": "^0.13.1",
 		"vitest": "1.4.0",
 		"vue-tsc": "1.8.27"
 	},
@@ -45,6 +46,7 @@
 		"@dl-element/theme": "workspace:*",
 		"@dl-element/utils": "workspace:*",
 		"axios": "^1.7.7",
+		"dayjs": "^1.11.13",
 		"dl-element": "workspace:*",
 		"echarts": "^5.5.1",
 		"lodash-es": "4.17.21",

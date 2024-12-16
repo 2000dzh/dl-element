@@ -1,4 +1,5 @@
 @import './reset.css';
+@import './echarts.css';
 
 :root {
   /* colors */
@@ -64,9 +65,4 @@
   /*animation*/
   --dl-transition-duration: 0.4s;
   --dl-transition-duration-fast: 0.2s;
-}
-
-.dl-echarts {
-  width: 100%;
-  height: 100%;
 }

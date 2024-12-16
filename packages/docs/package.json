@@ -1,22 +1,23 @@
 {
-  "name": "@dl-element/docs",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
-    "preview": "vitepress preview"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "git-revision-webpack-plugin": "^5.0.0",
-    "vitepress": "1.0.0-rc.44"
-  },
-  "dependencies": {
-    "@vitepress-demo-preview/component": "^2.3.2",
-    "@vitepress-demo-preview/plugin": "^1.2.3"
-  }
+	"name": "@dl-element/docs",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"dev": "vitepress dev",
+		"build": "vitepress build",
+		"preview": "vitepress preview",
+		"analyze": "vitepress build --mode analyze"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"git-revision-webpack-plugin": "^5.0.0",
+		"vitepress": "1.0.0-rc.44"
+	},
+	"dependencies": {
+		"@vitepress-demo-preview/component": "^2.3.2",
+		"@vitepress-demo-preview/plugin": "^1.2.3"
+	}
 }
