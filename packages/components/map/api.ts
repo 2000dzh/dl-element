@@ -1,5 +1,6 @@
 import axios from 'axios';
+import { defaultRequestPrefix } from '@dl-element/utils';
 
-export function getMpData() {
-	return axios.get('/dl-mapData/json/province/jiangsu.json');
+export function getMpData(url: string) {
+	return axios.get(`${defaultRequestPrefix}${url}`);
 }

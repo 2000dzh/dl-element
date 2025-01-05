@@ -1,20 +1,20 @@
 import ResizeObserver from 'resize-observer-polyfill';
+import { isSet } from 'lodash-es';
 
 export const GlobalResizeObserver = (() => {
-	const ATTR_NAME = 'dl-global-resizeobserver-key';
-
-	let value = 0;
-	let attrValueToCallback: Record<string, Array<() => void>> = {};
+	const elementToCallbacks = new WeakMap<Element, Set<() => void>>();
 
 	const o = new ResizeObserver((entrise) => {
 		for (const entry of entrise) {
-			const resizedElement = entry.target;
-			const attrValue = resizedElement.getAttribute(ATTR_NAME);
-			if (attrValue) {
-				const callback = attrValueToCallback[attrValue] as Array<
-					() => void
-				>;
-				callback.forEach((fn) => fn());
+			const callbacks = elementToCallbacks.get(entry.target);
+			if (isSet(callbacks)) {
+				callbacks.forEach((fn) => {
+					try {
+						fn();
+					} catch (error) {
+						console.error('ResizeObserver callback error:', error);
+					}
+				});
 			}
 		}
 	});
@@ -22,40 +22,46 @@ export const GlobalResizeObserver = (() => {
 	return Object.freeze({
 		observe(element: Element, callback: () => void) {
 			if (!(element instanceof Element)) {
-				console.error('useResizeObserver, cannot observe non-Element.');
-				return;
-			}
-
-			let attrValue = element.getAttribute(ATTR_NAME);
-			if (!attrValue) {
-				value++;
-				attrValue = value + '';
-				element.setAttribute(ATTR_NAME, attrValue);
-			}
-
-			(
-				attrValueToCallback[attrValue] ||
-				(attrValueToCallback[attrValue] = [])
-			).push(callback);
-
-			o.observe(element);
-		},
-		unobserve(element: Element) {
-			if (!(element instanceof Element)) {
-				console.error('useResizeObserver, cannot observe non-Element.');
-				return;
-			}
-
-			const attrValue = element.getAttribute(ATTR_NAME);
-			if (!attrValue) {
-				console.error(
-					'useResizeObserver cannot unobserve element w/o ATTR_NAME.'
+				throw new TypeError(
+					'ResizeObserver: First argument must be an Element'
 				);
+			}
+
+			let callbacks = elementToCallbacks.get(element);
+
+			if (!callbacks) {
+				callbacks = new Set();
+				elementToCallbacks.set(element, callbacks);
+				o.observe(element);
+			}
+
+			callbacks.add(callback);
+		},
+		unobserve(element: Element, callback?: () => void) {
+			if (!(element instanceof Element)) {
+				throw new TypeError(
+					'ResizeObserver: First argument must be an Element'
+				);
+			}
+
+			let callbacks = elementToCallbacks.get(element);
+
+			if (!callbacks) {
 				return;
 			}
 
-			Reflect.deleteProperty(attrValueToCallback, attrValue);
-			o.unobserve(element);
+			if (callback) {
+				// 移除特定回调
+				callbacks.delete(callback);
+				if (callbacks.size === 0) {
+					elementToCallbacks.delete(element);
+					o.unobserve(element);
+				}
+			} else {
+				// 移除所有回调
+				elementToCallbacks.delete(element);
+				o.unobserve(element);
+			}
 		},
 		disconnect() {
 			o.disconnect();

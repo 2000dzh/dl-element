@@ -1,13 +1,14 @@
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, shallowRef, computed, onMounted, onUnmounted, watch } from 'vue';
 import { each, isArray } from 'lodash-es';
 import { useGlobelProperties } from '@dl-element/hooks';
-import { getMpData } from './api';
+import { definePropType, GlobalResizeObserver } from '@dl-element/utils';
+import { formatMapData } from './util.ts';
 import application from './assets/application.png';
 import mapTexture from './assets/dituwenli';
 import selectMapTexture from './assets/dituwenli1';
 import type { SetupContext, ExtractPropTypes } from 'vue';
 import type { ECharts } from 'echarts/core';
-import type { MapOption, ChartList } from './type';
+import type { MapOption, SeriesData, MapJSON, SeriesDataItem } from './type';
 
 export const mapProps = {
 	modelValue: {
@@ -15,7 +16,7 @@ export const mapProps = {
 		required: true,
 	},
 	seriesData: {
-		type: Array<{ name: string; value: any }>,
+		type: definePropType<SeriesData>(Array),
 		default: () => [],
 	},
 };
@@ -30,34 +31,36 @@ export function useMap(
 ) {
 	const echarts = useGlobelProperties().$echarts;
 
+	const mapBox = ref();
 	const map1 = ref();
 	const map2 = ref();
 	const map3 = ref();
 	const map4 = ref();
 	const mapName = ref(props.modelValue);
 	const seriesData = props.seriesData;
-	let usaJson: any = {};
+	let mapJson: MapJSON<any> | null = null;
 
-	let myChart1: ECharts | null = null;
-	let myChart2: ECharts | null = null;
-	let myChart3: ECharts | null = null;
-	let myChart4: ECharts | null = null;
+	let myChart1 = shallowRef<ECharts | null>(null);
+	let myChart2 = shallowRef<ECharts | null>(null);
+	let myChart3 = shallowRef<ECharts | null>(null);
+	let myChart4 = shallowRef<ECharts | null>(null);
+	const myChartList = [myChart1, myChart2, myChart3, myChart4];
 	const mapTextureImg = new Image();
 	const selectMapTextureImg = new Image();
 	mapTextureImg.src = mapTexture;
 	selectMapTextureImg.src = selectMapTexture;
 
-	function updateMapName(value: string) {
-		mapName.value = value;
-		emit('update:modelValue', value);
+	function updateMapName() {
+		mapName.value = props.modelValue;
+		emit('update:modelValue', props.modelValue!);
 	}
 
-	const convertData = (data: Array<any>) => {
+	const convertData = (data: SeriesData) => {
 		const result: Array<{
 			name: string;
-			value: Array<number>;
+			value: Array<any>;
 		}> = [];
-		const features = usaJson ? usaJson.features : null;
+		const features = mapJson ? mapJson.features : null;
 
 		if (!isArray(features) || !isArray(data)) {
 			return result;
@@ -71,19 +74,25 @@ export function useMap(
 			// 区域数据
 			const areaVal = data.find((k) => k.name === areaName);
 			if (areaVal) {
-				result.push({
-					name: areaName,
-					value: isArray(areaCoord)
-						? areaCoord.concat(areaVal.value)
-						: [],
-				});
+				const obj = {
+					value: areaVal.value,
+				};
+				if (areaName) {
+					result.push({
+						name: areaName,
+						value: isArray(areaCoord)
+							? [...areaCoord, obj]
+							: [0, 0, obj],
+					});
+				}
 			}
 		});
-		console.log(result);
+
 		return result;
 	};
 
 	const option1 = computed(() => {
+		const mapData = convertData(seriesData);
 		const option: MapOption = {
 			geo: {
 				// 使用 registerMap 注册的地图名称。
@@ -131,7 +140,14 @@ export function useMap(
 					},
 				},
 				// 在地图中对特定的区域配置样式
-				regions: [],
+				regions: [
+					{
+						name: '南京市',
+						label: {
+							// show: false,
+						},
+					},
+				],
 			},
 			series: [
 				// 提示框
@@ -163,10 +179,14 @@ export function useMap(
 						fontSize: 14,
 						color: '#fff',
 						formatter(params) {
-							const val = isArray(params.value)
-								? (params.value.at(-1) ?? '')
-								: '';
-							return `当前区域客户数: {a|${val}}个`;
+							const val: SeriesDataItem | Record<string, any> =
+								isArray(params.value)
+									? (params.value.at(
+											-1
+										) as unknown as SeriesDataItem) || {}
+									: {};
+
+							return `当前区域客户数: {a|${val.value}}个`;
 						},
 						rich: {
 							a: {
@@ -175,7 +195,7 @@ export function useMap(
 							},
 						},
 					},
-					data: convertData(seriesData),
+					data: mapData,
 				},
 				// 底层图层
 				{
@@ -215,7 +235,7 @@ export function useMap(
 						borderColor: 'rgba(0,0,0,0)',
 						borderType: 'solid',
 					},
-					data: convertData(seriesData),
+					data: mapData,
 				},
 			],
 		};
@@ -328,14 +348,14 @@ export function useMap(
 	});
 
 	const initMap = () => {
-		myChart1 = echarts.init(map1.value);
-		myChart2 = echarts.init(map2.value);
-		myChart3 = echarts.init(map3.value);
-		myChart4 = echarts.init(map4.value);
+		myChart1.value = echarts.init(map1.value);
+		myChart2.value = echarts.init(map2.value);
+		myChart3.value = echarts.init(map3.value);
+		myChart4.value = echarts.init(map4.value);
 	};
 
 	const setMap = () => {
-		let chartList: ChartList | null = [
+		let chartList = [
 			{
 				chart: myChart1,
 				value: option1.value,
@@ -355,43 +375,99 @@ export function useMap(
 		];
 
 		each(chartList, (val) => {
-			if (val.chart) {
-				val.chart.setOption(val.value, true);
+			if (val.chart.value) {
+				val.chart.value.setOption(val.value, true);
 			}
 		});
 
-		chartList = null;
+		chartList = [];
 	};
 
 	const initData = async () => {
-		getMpData().then((resulst) => {
-			usaJson = resulst.data || {};
-			if (mapName.value) {
-				echarts.registerMap(mapName.value, usaJson, {});
+		formatMapData(mapName.value, seriesData).then((resulst) => {
+			mapJson = resulst;
+			if (mapName.value && mapJson) {
+				echarts.registerMap(mapName.value, mapJson, {});
 				initMap();
 				setMap();
 			}
 		});
 	};
 
-	const destructionMap = () => {
-		each([myChart1, myChart2, myChart3, myChart4], (chart) => {
-			if (chart) {
-				chart.dispose();
-				chart = null;
+	// 更新图表配置选项的函数
+	const updateChartOptions = () => {
+		formatMapData(mapName.value, seriesData).then((resulst) => {
+			mapJson = resulst;
+			if (mapName.value && mapJson) {
+				echarts.registerMap(mapName.value, mapJson, {});
+				let chartList = [
+					{
+						chart: myChart1,
+						value: option1.value,
+					},
+					{
+						chart: myChart2,
+						value: option2.value,
+					},
+					{
+						chart: myChart3,
+						value: option3.value,
+					},
+					{
+						chart: myChart4,
+						value: option4.value,
+					},
+				];
+
+				each(chartList, (val) => {
+					if (val.chart.value) {
+						val.chart.value.setOption(val.value, {
+							notMerge: true,
+							lazyUpdate: true,
+						});
+					}
+				});
+
+				chartList = [];
 			}
 		});
 	};
 
+	const destructionMap = () => {
+		each(myChartList, (chart) => {
+			if (chart.value) {
+				chart.value.dispose();
+				chart.value = null;
+			}
+		});
+	};
+
+	const handleResize = () => {
+		each(myChartList, (chart) => {
+			if (chart.value) {
+				chart.value.resize();
+			}
+		});
+	};
+
+	watch([() => props.modelValue], (...args) => {
+		console.log(args);
+		updateMapName();
+		updateChartOptions();
+	});
+
 	onMounted(() => {
 		initData();
+		GlobalResizeObserver.observe(mapBox.value, handleResize);
 	});
 
 	onUnmounted(() => {
+		GlobalResizeObserver.unobserve(mapBox.value);
 		destructionMap();
 	});
 
 	return {
+		mapBox,
 		map1,
 		map2,
 		map3,

@@ -8,11 +8,11 @@ defineOptions({
 const props = defineProps(mapProps);
 const emit = defineEmits(mapEmit);
 
-const { map1, map2, map3, map4 } = useMap(props, emit);
+const { mapBox, map1, map2, map3, map4 } = useMap(props, emit);
 </script>
 
 <template>
-	<div class="dl-echarts map-echarts-box">
+	<div class="dl-echarts map-echarts-box" ref="mapBox">
 		<!-- 地图 -->
 		<div class="dl-echarts map-echarts map-echarts1" ref="map1"></div>
 		<!-- 边界 -->

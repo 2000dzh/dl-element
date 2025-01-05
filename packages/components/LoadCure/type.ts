@@ -1,4 +1,3 @@
-import {} from 'echarts';
 import type { ComposeOption } from 'echarts/core';
 import type { LineSeriesOption } from 'echarts/charts';
 import type {
