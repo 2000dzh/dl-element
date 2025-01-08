@@ -1,12 +1,13 @@
+# 名称
 name: Test and deploy
 
+# 触发方式
 on:
+  workflow_dispatch:
+  
   push:
     branches:
       - main
-
-  workflow_dispatch:
-
 jobs:
   test:
     name: Run Lint and Test
