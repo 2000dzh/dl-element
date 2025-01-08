@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LoadCureProps, LoadCureEmit, useLoadCure } from './LoadCure';
+import { LoadCureProps, LoadCureEmit, useLoadCure } from './load-cure';
 
 defineOptions({
 	name: 'DlLoadCure',

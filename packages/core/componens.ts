@@ -4,10 +4,11 @@ import {
 	DlIcon,
 	DlCollapse,
 	DlCollapseItem,
-  DlAlert,
-  DlTooltip,
-  DlMap,
-  DlLoadCure
+	DlAlert,
+	DlTooltip,
+	DlMap,
+	DlLoadCure,
+	DlRing,
 } from '@dl-element/components';
 import type { Plugin } from 'vue';
 
@@ -17,8 +18,9 @@ export default [
 	DlIcon,
 	DlCollapse,
 	DlCollapseItem,
-  DlAlert,
-  DlTooltip,
-  DlMap,
-  DlLoadCure
+	DlAlert,
+	DlTooltip,
+	DlMap,
+	DlLoadCure,
+	DlRing,
 ] as Array<Plugin>;

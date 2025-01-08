@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { time48, time96, time288, time1440, time24 } from '@dl-element/utils';
 import MapDemo from './map-demo.vue'
+import RingDemo from './ring-demo.vue'
 
 const mapName = ref('南京市');
 const seriesData = [
@@ -27,7 +28,7 @@ const lineData = ref({
 
 <template>
 	<!-- <dl-button @click="show = !show" type="primary">测试</dl-button> -->
-  <MapDemo />
+  <RingDemo />
 	<!-- <dl-alert title="Success alert" type="success" effect="dark"></dl-alert>
 	<dl-alert type="success">Success alert</dl-alert>
 	<dl-alert type="info">Info alert</dl-alert>
