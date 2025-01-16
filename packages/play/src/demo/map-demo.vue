@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 import { time48, time96, time288, time1440, time24 } from '@dl-element/utils';
 
-const mapName = ref('安徽');
+const mapName = ref('江苏');
 const seriesData = [
 	{
 		name: '南京市',

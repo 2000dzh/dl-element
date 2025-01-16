@@ -3,12 +3,15 @@ import { each, isArray } from 'lodash-es';
 import { useGlobelProperties } from '@dl-element/hooks';
 import { definePropType, GlobalResizeObserver } from '@dl-element/utils';
 import { formatMapData } from './util.ts';
-import application from './assets/application.png';
-import mapTexture from './assets/dituwenli';
-import selectMapTexture from './assets/dituwenli1';
+import { MAP_ASSETS } from './enum.ts';
+// import application from './assets/application.png';
+// import mapTexture from './assets/dituwenli';
+// import selectMapTexture from './assets/dituwenli1';
 import type { SetupContext, ExtractPropTypes } from 'vue';
 import type { ECharts } from 'echarts/core';
 import type { MapOption, SeriesData, MapJSON, SeriesDataItem } from './type';
+
+const origin = window.location.origin;
 
 export const mapProps = {
 	modelValue: {
@@ -47,8 +50,8 @@ export function useMap(
 	const myChartList = [myChart1, myChart2, myChart3, myChart4];
 	const mapTextureImg = new Image();
 	const selectMapTextureImg = new Image();
-	mapTextureImg.src = mapTexture;
-	selectMapTextureImg.src = selectMapTexture;
+	mapTextureImg.src = `${origin}${MAP_ASSETS.normalTexture}`;
+	selectMapTextureImg.src = `${origin}${MAP_ASSETS.selectedTexture}`;
 
 	function updateMapName() {
 		mapName.value = props.modelValue;
@@ -158,7 +161,8 @@ export function useMap(
 					// 该系列使用的坐标系
 					coordinateSystem: 'geo',
 					// 标记的图形
-					symbol: 'image://' + application,
+					// symbol: 'image://' + application,
+					symbol: `image://${origin}${MAP_ASSETS.applicationIcon}`,
 					// 标记的图形大小
 					symbolSize: [190, 50],
 					// 标记相对于原本位置的偏移

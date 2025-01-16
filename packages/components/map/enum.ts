@@ -17,6 +17,15 @@ const CityMap = Object.freeze({
 	AnHui: { name: '安徽', pinyin: 'anhui' },
 } as const);
 
+const DEFAULT_CDN = '/dl-mapData/assets/map/';
+
+// 定义所需的资源列表
+export const MAP_ASSETS = Object.freeze({
+	normalTexture: `${DEFAULT_CDN}dituweixuanzhongbeijing.png`,
+	selectedTexture: `${DEFAULT_CDN}dituxuanzhongbeijing.png`,
+	applicationIcon: `${DEFAULT_CDN}application.png`,
+} as const);
+
 /**
  * @description 根据城市中文名查找对应的城市信息
  * @param cityName 城市中文名（例如：'淮安市'）
@@ -41,7 +50,7 @@ export function getMapJsonPath(cityKey: string) {
 
 	if (!city) return undefined;
 
-	return ['jiangsu','anhui'].includes(city.pinyin)
-		? `/json/province/${city.pinyin}.json`
-		: `/json/city/${city.pinyin}.json`;
+	return ['jiangsu', 'anhui'].includes(city.pinyin)
+		? `/map-json/json/province/${city.pinyin}.json`
+		: `/map-json/json/city/${city.pinyin}.json`;
 }

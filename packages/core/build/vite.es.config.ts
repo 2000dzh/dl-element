@@ -75,13 +75,16 @@ export default defineConfig({
 		}),
 	],
 	build: {
+		// 打包输出目录
 		outDir: 'dist/es',
 		// 开启代码混淆
 		minify: true,
 		// 启用/禁用 CSS 代码拆分
 		cssCodeSplit: true,
+		// 以库的形式构建
 		lib: {
 			entry: resolve(__dirname, '../index.ts'),
+			// 暴露的全局变量
 			name: 'DlElement',
 			fileName: 'index',
 			formats: ['es'],
@@ -111,9 +114,8 @@ export default defineConfig({
 
 					return assetInfo.name as string;
 				},
+				// 创建自定义的公共 chunk(合并,拆分chunk)
 				manualChunks(id) {
-					// console.log(id);
-
 					if (id.includes('node_modules')) {
 						return 'vendor';
 					} else if (id.includes('/packages/hooks')) {
@@ -126,11 +128,10 @@ export default defineConfig({
 					}
 
 					for (const item of getDirectoriesSync('../components')) {
-						if (includes(id, `/packages/components/${item}`))
+						if (includes(id, `/packages/components/${item}`)) {
 							return item;
+						}
 					}
-
-					console.log(id);
 				},
 			},
 		},
