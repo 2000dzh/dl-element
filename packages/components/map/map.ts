@@ -11,7 +11,7 @@ import type { SetupContext, ExtractPropTypes } from 'vue';
 import type { ECharts } from 'echarts/core';
 import type { MapOption, SeriesData, MapJSON, SeriesDataItem } from './type';
 
-const origin = window.location.origin;
+const origin = typeof window !== 'undefined' ? window.location.origin : '';
 
 export const mapProps = {
 	modelValue: {
