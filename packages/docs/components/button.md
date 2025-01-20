@@ -31,14 +31,6 @@ demo-preview=../demo/button/Basic.vue
 demo-preview=../demo/button/Disabled.vue
 :::
 
-## 图标按钮
-
-使用 `icon`属性来定义按钮的图标。
-
-::: preview
-demo-preview=../demo/button/Icon.vue
-:::
-
 ## 按钮组
 
 使用 `<dl-button-group>` 对多个按钮分组。
@@ -52,9 +44,7 @@ demo-preview=../demo/button/Group.vue
 使用 `loading`属性来定义按钮的加载状态。
 
 ::: tip
-您可以使用 `loading` 插槽或 `loadingIcon` 属性自定义您的 loading 图标
-
-ps: `loading` 插槽优先级高于 `loadingIcon` 属性
+您可以使用 `loading` 插槽自定义您的 loading 图标
 :::
 
 ::: preview
@@ -97,9 +87,7 @@ demo-preview=../demo/button/Throttle.vue
 | round             | 是否为圆角按钮                    | `boolean`                                                        | false   |
 | circle            | 是否为圆形按钮                    | `boolean`                                                        | false   |
 | loading           | 是否为加载中状态                  | `boolean`                                                        | false   |
-| loading-icon      | 自定义加载中状态图标组件          | `string`                                                         | spinner |
 | disabled          | 按钮是否为禁用状态                | `boolean`                                                        | false   |
-| icon              | 按钮图标                          | `string`                                                         | -       |
 | autofocus         | 是否自动聚焦(原生`autofocus`属性) | `boolean`                                                        | false   |
 | native-type       | 原生 type 属性                    | `enum` - `'button'\| 'submit'\| 'reset'`                         | button  |
 | tag               | 自定义元素标签                    | `string`\/`Component`                                            | button  |

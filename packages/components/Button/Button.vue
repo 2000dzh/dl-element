@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, inject, ref } from 'vue';
 import { throttle } from 'lodash-es';
-import DlIcon from '../Icon/Icon.vue';
+// import DlIcon from '../icon/icon.vue';
 import { BUTTON_GROUP_CTX_KEY } from './constants.ts';
 import type { ButtonProps, ButtonEmits, ButtonInstance } from './types.ts';
 
@@ -28,9 +28,9 @@ const disabled = computed(() => props.disabled || !!ctx?.disabled);
 const comType = computed(() =>
 	props.tag === 'button' ? props.nativeType : null
 );
-const iconStyle = computed(() => ({
-	marginRight: slots.default ? '6px' : '0px',
-}));
+// const iconStyle = computed(() => ({
+// 	marginRight: slots.default ? '6px' : '0px',
+// }));
 
 const handleBtnClick = (e: MouseEvent) => emits('click', e);
 const handleBtnClickThrottle = throttle(
@@ -43,9 +43,9 @@ const handleClick = (e: MouseEvent) =>
 
 defineExpose<ButtonInstance>({
 	ref: _ref,
-  disabled,
-  size,
-  type,
+	disabled,
+	size,
+	type,
 });
 </script>
 
@@ -68,20 +68,17 @@ defineExpose<ButtonInstance>({
 		}"
 		@click="handleClick"
 	>
-		<template v-if="loading">
+		<!-- <template v-if="loading">
 			<slot name="loading">
 				<dl-icon
 					class="loading-icon"
 					:style="iconStyle"
-					:icon="loadingIcon ?? 'spinner'"
+					icon="spinner"
 					size="1x"
 					spin
 				/>
 			</slot>
-		</template>
-		<template v-else>
-			<dl-icon v-if="icon" :icon="icon" size="1x" :style="iconStyle" />
-		</template>
+		</template> -->
 		<slot></slot>
 	</component>
 </template>

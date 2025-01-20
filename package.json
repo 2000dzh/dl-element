@@ -16,9 +16,6 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-		"@fortawesome/fontawesome-svg-core": "^6.5.2",
-		"@fortawesome/free-solid-svg-icons": "^6.5.2",
-		"@fortawesome/vue-fontawesome": "^3.0.8",
 		"@popperjs/core": "2.11.8",
 		"@types/lodash-es": "4.17.12",
 		"@types/node": "20.11.20",

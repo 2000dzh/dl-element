@@ -1,10 +1,8 @@
-import type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-
 export interface IconProps {
 	border?: boolean;
 	fixedWidth?: boolean;
 	flip?: 'horizontal' | 'vertical' | 'both';
-	icon: object | Array<string> | string | IconDefinition;
+	icon: object | Array<string> | string;
 	mask?: object | Array<string> | string;
 	listItem?: boolean;
 	pull?: 'right' | 'left';

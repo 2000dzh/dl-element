@@ -29,6 +29,6 @@ export default defineConfig({
 			'**/true/coverage/**',
 			'**/coverage/**',
 		],
-		setupFiles: [resolve(__dirname, './vitest.setup.ts')],
+		// setupFiles: [resolve(__dirname, './vitest.setup.ts')],
 	},
 });

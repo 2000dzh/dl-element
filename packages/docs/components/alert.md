@@ -3,12 +3,12 @@ title: Alert
 description: Alert 组件文档
 
 next:
-  link: /components/loading
-  text: Loading 加载
+    link: /components/loading
+    text: Loading 加载
 
 prev:
-  link: /components/dropdown
-  text: Dropdown 下拉菜单
+    link: /components/dropdown
+    text: Dropdown 下拉菜单
 ---
 
 # Alert 提示
@@ -41,14 +41,6 @@ demo-preview=../demo/alert/Theme.vue
 demo-preview=../demo/alert/Close.vue
 :::
 
-## 展示图标
-
-通过设置 `show-icon` 属性来显示 Alert 的 icon，这能更有效地向用户展示你的显示意图。
-
-::: preview
-demo-preview=../demo/alert/ShowIcon.vue
-:::
-
 ## 文字居中
 
 使用 `center` 属性来让文字水平居中。
@@ -65,12 +57,6 @@ demo-preview=../demo/alert/TextCenter.vue
 demo-preview=../demo/alert/Desc.vue
 :::
 
-## 带图标和描述
-
-::: preview
-demo-preview=../demo/alert/IconDesc.vue
-:::
-
 ## Alert API
 
 ### Props
@@ -82,7 +68,6 @@ demo-preview=../demo/alert/IconDesc.vue
 | description | 描述性文本   | `string`                                             | —       |
 | closable    | 是否可以关闭 | `boolean`                                            | true    |
 | center      | 文字是否居中 | `boolean`                                            | false   |
-| show-icon   | 是否展示图标 | `boolean`                                            | false   |
 | effect      | 主题样式     | `enum` - `'light'\| 'dark'\`                         | light   |
 
 ### Events

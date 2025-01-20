@@ -1,5 +1,5 @@
 import { withInstall } from "@dl-element/utils";
-import Tooltip from "./Tooltip.vue";
+import Tooltip from "./tooltip.vue";
 
 export const DlTooltip = withInstall(Tooltip);
-export * from "./types";
+export * from "./types.ts";

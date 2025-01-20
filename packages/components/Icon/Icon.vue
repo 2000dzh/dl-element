@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { computed } from 'vue';
 import { omit } from 'lodash-es';
-import type { IconProps } from './types';
+import type { IconProps } from './types.ts';
 
 defineOptions({
 	name: 'DlIcon',
@@ -23,10 +22,10 @@ const customStyles = computed(() => ({
 		:style="customStyles"
 		v-bind="$attrs"
 	>
-		<FontAwesomeIcon v-bind="filterProps" />
+		<slot v-bind="filterProps" />
 	</i>
 </template>
 
 <style scoped>
-@import "./style.css";
+@import './style.css';
 </style>

@@ -1,6 +1,6 @@
 import { withInstall } from '@dl-element/utils';
-import Icon from './Icon.vue';
+import Icon from './icon.vue';
 
 export const DlIcon = withInstall(Icon);
 
-export * from './types';
+export * from './types.ts';

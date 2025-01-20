@@ -6,7 +6,7 @@ import { useClickOutside } from '@dl-element/hooks';
 import { useEvenstToTiggerNode } from './useEventsToTiggerNode';
 import type { DebouncedFunc } from 'lodash-es';
 import type { Instance } from '@popperjs/core';
-import type { TooltipProps, TooltipEmits, TooltipInstance } from './types';
+import type { TooltipProps, TooltipEmits, TooltipInstance } from './types.ts';
 
 defineOptions({
 	name: 'DlTooltip',

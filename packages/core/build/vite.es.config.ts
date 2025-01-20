@@ -93,9 +93,6 @@ export default defineConfig({
 			// 去除外部依赖,不包括在最终的打包文件中
 			external: [
 				'vue',
-				'@fortawesome/fontawesome-svg-core',
-				'@fortawesome/free-solid-svg-icons',
-				'@fortawesome/vue-fontawesome',
 				'@popperjs/core',
 				'async-validator',
 			],

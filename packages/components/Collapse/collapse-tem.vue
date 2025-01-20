@@ -3,7 +3,7 @@ import { computed, inject } from 'vue';
 import { includes } from 'lodash-es';
 import { COLLAPSE_CTX_KEY } from './constants';
 import transitionEvents from './transitionEvents';
-import DlIcon from '../Icon/Icon.vue';
+// import DlIcon from '../icon/icon.vue';
 import type { CollapseItemProps } from './types';
 
 defineOptions({
@@ -43,7 +43,7 @@ function handleClick() {
 					{{ title }}
 				</slot>
 			</span>
-			<DlIcon icon="angle-right" class="header-angle" />
+			<!-- <DlIcon icon="angle-right" class="header-angle" /> -->
 		</div>
 		<transition name="slide" v-on="transitionEvents">
 			<div class="dl-collapse-item__wapper" v-show="isActive">

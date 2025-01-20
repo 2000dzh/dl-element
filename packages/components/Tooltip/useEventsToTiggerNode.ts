@@ -1,7 +1,7 @@
 import { each, isElement, isFunction } from 'lodash-es';
 import { onMounted, onUnmounted, watch } from 'vue';
 import type { ComputedRef, Ref, WatchStopHandle } from 'vue';
-import type { TooltipProps } from './types';
+import type { TooltipProps } from './types.ts';
 
 export function useEvenstToTiggerNode(
 	props: TooltipProps & { virtualTriggering?: boolean },

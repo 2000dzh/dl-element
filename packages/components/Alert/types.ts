@@ -7,7 +7,6 @@ export interface AlertProps {
 	effect?: 'light' | 'dark';
 	closable?: boolean;
 	center?: boolean;
-	showIcon?: boolean;
 }
 
 export interface AlertEmits {

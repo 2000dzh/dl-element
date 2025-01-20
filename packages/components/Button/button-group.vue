@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { provide, reactive, toRef } from 'vue';
-import { BUTTON_GROUP_CTX_KEY } from './constants.ts';
+import { BUTTON_GROUP_CTX_KEY } from './constants.ts'
 import type { ButtonGroupProps } from './types.ts';
 
 defineOptions({

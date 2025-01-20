@@ -24,27 +24,6 @@ const { mapBox, map1, map2, map3, map4 } = useMap(props, emit);
 	</div>
 </template>
 
-<style>
-.map-echarts-box {
-	position: relative;
-	background-color: #000;
-}
-.map-echarts {
-	position: absolute;
-	top: 0;
-}
-.map-echarts1 {
-	z-index: 4;
-}
-.map-echarts2 {
-	z-index: 3;
-}
-.map-echarts3 {
-	top: 10px;
-	z-index: 2;
-}
-.map-echarts4 {
-	top: 20px;
-	z-index: 1;
-}
+<style scoped>
+@import "./style.css";
 </style>

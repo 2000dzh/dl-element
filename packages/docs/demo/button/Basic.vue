@@ -25,13 +25,4 @@
     <dl-button type="warning" round>Warning</dl-button>
     <dl-button type="danger" round>Danger</dl-button>
   </p>
-
-  <p>
-    <dl-button icon="search" circle />
-    <dl-button type="primary" icon="edit" circle />
-    <dl-button type="success" icon="check" circle />
-    <dl-button type="info" icon="message" circle />
-    <dl-button type="warning" icon="star" circle />
-    <dl-button type="danger" icon="trash" circle />
-  </p>
 </template>

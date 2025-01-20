@@ -1,6 +1,6 @@
 import { withInstall } from '@dl-element/utils';
-import Alert from './Alert.vue';
+import Alert from './alert.vue';
 
 export const DlAlert = withInstall(Alert);
 
-export * from './types';
+export * from './types.ts';

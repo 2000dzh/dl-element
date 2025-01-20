@@ -55,5 +55,3 @@ const circleList = computed(() => {
 		/>
 	</svg>
 </template>
-
-<style scoped></style>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import DlIcon from '../Icon/Icon.vue';
-import type { AlertProps, AlertEmits, AlertInstance } from './types';
+// import DlIcon from '../icon/icon.vue';
+import type { AlertProps, AlertEmits, AlertInstance } from './types.ts';
 
 defineOptions({
 	name: 'DlAlert',
@@ -15,16 +15,7 @@ const props = withDefaults(defineProps<AlertProps>(), {
 const emits = defineEmits<AlertEmits>();
 const slots = defineSlots();
 
-const typeIconMap = new Map([
-	['info', 'circle-info'],
-	['success', 'check-circle'],
-	['warning', 'circle-exclamation'],
-	['danger', 'circle-xmark'],
-	['error', 'circle-xmark'],
-]);
-
 const visible = ref(true);
-const iconName = computed(() => typeIconMap.get(props.type) ?? 'circle-info');
 const withDescription = computed(() => props.description || slots.default);
 
 function open() {
@@ -53,18 +44,12 @@ defineExpose<AlertInstance>({
 				'text-center': center,
 			}"
 		>
-			<DlIcon
-				v-if="showIcon"
-				class="dl-alert__icon"
-				:class="{ 'big-icon': withDescription }"
-				:icon="iconName"
-			/>
 			<div class="dl-alert__content">
 				<span
 					class="dl-alert__title"
 					:class="{ 'with-desc': withDescription }"
 					:style="{
-						display: center && !showIcon ? 'flow' : 'inline',
+						display: center ? 'flow' : 'inline',
 					}"
 				>
 					<slot name="title">{{ title }}</slot>
@@ -72,14 +57,13 @@ defineExpose<AlertInstance>({
 				<p class="dl-alert__description">
 					<slot>{{ description }}</slot>
 				</p>
-				<div class="dl-alert__close" v-if="closable">
+				<!-- <div class="dl-alert__close" v-if="closable">
 					<DlIcon @click.stop="close" icon="xmark" />
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</transition>
 </template>
-
 
 <style scoped>
 @import './style.css';

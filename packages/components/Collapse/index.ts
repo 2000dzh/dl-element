@@ -1,8 +1,8 @@
 import { withInstall } from '@dl-element/utils';
-import Collapse from './Collapse.vue';
-import CollapseItem from './CollapseItem.vue';
+import Collapse from './collapse.vue';
+import CollapseItem from './collapse-tem.vue';
 
 export const DlCollapse = withInstall(Collapse);
 export const DlCollapseItem = withInstall(CollapseItem);
 
-export * from './types';
+export * from './types.ts';

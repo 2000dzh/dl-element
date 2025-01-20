@@ -2,7 +2,7 @@ import { describe, test, it, expect, vi, beforeEach } from 'vitest';
 import { withInstall } from '@dl-element/utils';
 import { mount } from '@vue/test-utils';
 import { DlTooltip } from './index.ts';
-import Tooltip from './Tooltip.vue';
+import Tooltip from './tooltip.vue';
 
 vi.mock('@popperjs/core');
 
