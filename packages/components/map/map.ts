@@ -1,6 +1,6 @@
 import { ref, shallowRef, computed, onMounted, onUnmounted, watch } from 'vue';
 import { each, isArray } from 'lodash-es';
-import { useGlobelProperties } from '@dl-element/hooks';
+import { useGlobelProperties, useEventListener } from '@dl-element/hooks';
 import { definePropType, GlobalResizeObserver } from '@dl-element/utils';
 import { formatMapData } from './util.ts';
 import { MAP_ASSETS } from './enum.ts';
@@ -461,8 +461,10 @@ export function useMap(
 	});
 
 	onMounted(() => {
-		initData();
-		GlobalResizeObserver.observe(mapBox.value, handleResize);
+		useEventListener(mapTextureImg, 'load', () => {
+			initData();
+			GlobalResizeObserver.observe(mapBox.value, handleResize);
+		});
 	});
 
 	onUnmounted(() => {
