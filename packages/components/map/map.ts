@@ -454,8 +454,7 @@ export function useMap(
 		});
 	};
 
-	watch([() => props.modelValue], (...args) => {
-		console.log(args);
+	watch([() => props.modelValue], () => {
 		updateMapName();
 		updateChartOptions();
 	});

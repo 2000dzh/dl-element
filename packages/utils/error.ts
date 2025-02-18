@@ -1,4 +1,5 @@
 import { isString } from 'lodash-es';
+import { isProd } from './general.ts';
 
 class DlUIError extends Error {
 	constructor(msg: string) {
@@ -14,7 +15,7 @@ export function throwError(scope: string, msg: string) {
 export function debugWarn(error: Error): void;
 export function debugWarn(scope: string, msg: string): void;
 export function debugWarn(scope: Error | string, msg?: string) {
-	if (process.env.NODE_ENV !== 'production') {
+	if (isProd) {
 		const err = isString(scope)
 			? new DlUIError(`[${scope}]:${msg}`)
 			: scope;

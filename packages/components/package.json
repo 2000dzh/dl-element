@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest --run --coverage"
+    "test": "vitest --run --coverage",
+    "clean:rely-on": "rimraf node_modules"
   },
   "keywords": [],
   "author": "",

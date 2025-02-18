@@ -7,7 +7,8 @@
 		"dev": "vitepress dev",
 		"build": "vitepress build",
 		"preview": "vitepress preview",
-		"analyze": "vitepress build --mode analyze"
+		"analyze": "vitepress build --mode analyze",
+    "clean:rely-on": "rimraf node_modules"
 	},
 	"keywords": [],
 	"author": "",

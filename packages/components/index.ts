@@ -6,3 +6,4 @@ export * from './tooltip';
 export * from './map';
 export * from './load-cure';
 export * from './ring';
+export * from './seamless-scroll'

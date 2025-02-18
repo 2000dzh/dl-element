@@ -4,12 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean:rely-on": "rimraf node_modules"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "resize-observer-polyfill": "^1.5.1"
-  }
+  "license": "ISC"
 }

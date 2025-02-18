@@ -89,8 +89,6 @@ export function useLoadCure(
 			day = dayjs(firstVal).format('YYYY-MM-DD');
 		}
 
-		console.log(newSeriesData);
-
 		const options: LoadCureOption = {
 			animationDuration: 200,
 			color: ['red', 'pink'],
@@ -214,22 +212,22 @@ export function useLoadCure(
 				},
 				padding: 0,
 
-        // 坐标轴指示器配置项
+				// 坐标轴指示器配置项
 				axisPointer: {
-          // 指示器类型
+					// 指示器类型
 					type: 'cross',
-          // 对时间轴比较有意义,可以自动寻找细小的数值点
-          snap: true,
-          // 坐标轴指示器的文本标签
-          label: {
-            show: false
-          },
-          // x轴的指示线样式设置
-          lineStyle: {
-            type: 'dashed',
-            color: '#666',
-            width: 1
-          }
+					// 对时间轴比较有意义,可以自动寻找细小的数值点
+					snap: true,
+					// 坐标轴指示器的文本标签
+					label: {
+						show: false,
+					},
+					// x轴的指示线样式设置
+					lineStyle: {
+						type: 'dashed',
+						color: '#666',
+						width: 1,
+					},
 				},
 			},
 

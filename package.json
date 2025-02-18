@@ -10,7 +10,8 @@
 		"docs:dev": "pnpm --filter @dl-element/docs dev",
 		"docs:build": "pnpm --filter @dl-element/docs build",
 		"build": "cross-env NODE_ENV=production pnpm --filter dl-element build",
-		"build:dev": "cross-env NODE_ENV=development pnpm --filter dl-element build:watch"
+		"build:dev": "cross-env NODE_ENV=development pnpm --filter dl-element build:watch",
+    "clean:rely-on": "rimraf node_modules && pnpm run -r --parallel clean:rely-on"
 	},
 	"keywords": [],
 	"author": "",
@@ -46,6 +47,7 @@
 		"dayjs": "^1.11.13",
 		"dl-element": "workspace:*",
 		"echarts": "^5.5.1",
+		"gsap": "^3.12.7",
 		"lodash-es": "4.17.21",
 		"vue": "3.4.19"
 	}

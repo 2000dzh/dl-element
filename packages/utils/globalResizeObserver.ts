@@ -1,26 +1,60 @@
-import ResizeObserver from 'resize-observer-polyfill';
 import { isSet } from 'lodash-es';
+import { defaultWindow } from '@dl-element/utils';
+
+interface ResizeObserverEntry {
+	readonly target: Element;
+	readonly contentRect: DOMRectReadOnly;
+	readonly borderBoxSize: ReadonlyArray<ResizeObserverSize>;
+	readonly contentBoxSize: ReadonlyArray<ResizeObserverSize>;
+	readonly devicePixelContentBoxSize: ReadonlyArray<ResizeObserverSize>;
+}
+
+export type ResizeObserverCallback = (entry: ResizeObserverEntry) => void;
 
 export const GlobalResizeObserver = (() => {
-	const elementToCallbacks = new WeakMap<Element, Set<() => void>>();
+	const isSupported = defaultWindow && 'ResizeObserver' in defaultWindow;
+	if (!isSupported) {
+		return Object.freeze({
+			observe() {},
+			unobserve() {},
+			disconnect() {},
+		});
+	}
+
+	const elementToCallbacks = new WeakMap<
+		Element,
+		Set<ResizeObserverCallback>
+	>();
 
 	const o = new ResizeObserver((entrise) => {
-		for (const entry of entrise) {
-			const callbacks = elementToCallbacks.get(entry.target);
-			if (isSet(callbacks)) {
-				callbacks.forEach((fn) => {
-					try {
-						fn();
-					} catch (error) {
-						console.error('ResizeObserver callback error:', error);
-					}
-				});
+		// 避免 ResizeObserver loop completed with undelivered notifications 的警告
+		// 使用 requestAnimationFrame 来异步处理尺寸变化逻辑,这样可以避免阻塞事件循环
+		// 参考 https://www.jianshu.com/p/e1d177af435e
+		requestAnimationFrame(() => {
+			for (const entry of entrise) {
+				const callbacks = elementToCallbacks.get(entry.target);
+				if (isSet(callbacks)) {
+					callbacks.forEach((fn) => {
+						try {
+							fn(entry);
+						} catch (error) {
+							console.error(
+								'ResizeObserver callback error:',
+								error
+							);
+						}
+					});
+				}
 			}
-		}
+		});
 	});
 
 	return Object.freeze({
-		observe(element: Element, callback: () => void) {
+		observe(
+			element: Element,
+			callback: ResizeObserverCallback,
+			options: ResizeObserverOptions = {}
+		) {
 			if (!(element instanceof Element)) {
 				throw new TypeError(
 					'ResizeObserver: First argument must be an Element'
@@ -32,12 +66,12 @@ export const GlobalResizeObserver = (() => {
 			if (!callbacks) {
 				callbacks = new Set();
 				elementToCallbacks.set(element, callbacks);
-				o.observe(element);
+				o.observe(element, options);
 			}
 
 			callbacks.add(callback);
 		},
-		unobserve(element: Element, callback?: () => void) {
+		unobserve(element: Element, callback?: ResizeObserverCallback) {
 			if (!(element instanceof Element)) {
 				throw new TypeError(
 					'ResizeObserver: First argument must be an Element'
