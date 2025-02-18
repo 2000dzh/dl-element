@@ -23,39 +23,45 @@ function handleClick() {
 </script>
 
 <template>
-	<div
-		class="dl-collapse-item"
-		:class="{
-			'is-disabled': disabled,
-		}"
-	>
-		<div
-			class="dl-collapse-item__header"
-			:id="`item-header-${name}`"
-			:class="{
-				'is-disabled': disabled,
-				'is-active': isActive,
-			}"
-			@click="handleClick"
-		>
-			<span class="dl-collapse-item__title">
-				<slot name="title">
-					{{ title }}
-				</slot>
-			</span>
-			<!-- <DlIcon icon="angle-right" class="header-angle" /> -->
-		</div>
-		<transition name="slide" v-on="transitionEvents">
-			<div class="dl-collapse-item__wapper" v-show="isActive">
-				<div
-					class="dl-collapse-item__content"
-					:id="`item-content-${name}`"
-				>
-					<slot></slot>
-				</div>
-			</div>
-		</transition>
-	</div>
+  <div
+    class="dl-collapse-item"
+    :class="{
+      'is-disabled': disabled,
+    }"
+  >
+    <div
+      :id="`item-header-${name}`"
+      class="dl-collapse-item__header"
+      :class="{
+        'is-disabled': disabled,
+        'is-active': isActive,
+      }"
+      @click="handleClick"
+    >
+      <span class="dl-collapse-item__title">
+        <slot name="title">
+          {{ title }}
+        </slot>
+      </span>
+      <!-- <DlIcon icon="angle-right" class="header-angle" /> -->
+    </div>
+    <transition
+      name="slide"
+      v-on="transitionEvents"
+    >
+      <div
+        v-show="isActive"
+        class="dl-collapse-item__wapper"
+      >
+        <div
+          :id="`item-content-${name}`"
+          class="dl-collapse-item__content"
+        >
+          <slot />
+        </div>
+      </div>
+    </transition>
+  </div>
 </template>
 
 <style scoped></style>

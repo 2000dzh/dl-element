@@ -43,10 +43,10 @@ export function useMap(
 	const seriesData = props.seriesData;
 	let mapJson: MapJSON<any> | null = null;
 
-	let myChart1 = shallowRef<ECharts | null>(null);
-	let myChart2 = shallowRef<ECharts | null>(null);
-	let myChart3 = shallowRef<ECharts | null>(null);
-	let myChart4 = shallowRef<ECharts | null>(null);
+	const myChart1 = shallowRef<ECharts | null>(null);
+	const myChart2 = shallowRef<ECharts | null>(null);
+	const myChart3 = shallowRef<ECharts | null>(null);
+	const myChart4 = shallowRef<ECharts | null>(null);
 	const myChartList = [myChart1, myChart2, myChart3, myChart4];
 	const mapTextureImg = new Image();
 	const selectMapTextureImg = new Image();

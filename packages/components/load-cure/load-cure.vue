@@ -12,7 +12,10 @@ const { DlLoadCure } = useLoadCure(props, emit);
 </script>
 
 <template>
-	<div ref="DlLoadCure" class="dl-echarts"></div>
+  <div
+    ref="DlLoadCure"
+    class="dl-echarts"
+  />
 </template>
 
 <style scoped></style>

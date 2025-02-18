@@ -1,6 +1,12 @@
 <template>
   <dl-button>button</dl-button>
-  <dl-button tag="div" role="button" tabindex="0">div</dl-button>
+  <dl-button
+    tag="div"
+    role="button"
+    tabindex="0"
+  >
+    div
+  </dl-button>
   <dl-button
     type="primary"
     tag="a"

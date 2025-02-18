@@ -33,7 +33,7 @@ export const MAP_ASSETS = Object.freeze({
  */
 export const findCityByName = (cityName: string) => {
 	const entry = Object.entries(CityMap).find(
-		([_, value]) => value.name === cityName
+		([, value]) => value.name === cityName
 	);
 	if (!entry) return undefined;
 

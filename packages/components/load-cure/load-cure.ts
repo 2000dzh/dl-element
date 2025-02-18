@@ -77,17 +77,13 @@ export function useLoadCure(
 
 	// 获取图标配置项
 	const getOptions = () => {
-		let { xAxisData, seriesData } = props.lineData;
+		const { xAxisData, seriesData } = props.lineData;
 
 		const newSeriesData = getTimeData(xAxisData, seriesData);
-		let day = '';
+		let day = undefined;
 
-		if (!isArray(xAxisData)) {
-			xAxisData = [];
-		} else {
-			const firstVal = xAxisData[0] || '';
-			day = dayjs(firstVal).format('YYYY-MM-DD');
-		}
+		const firstVal = isArray(isArray) ? xAxisData[0] || undefined : undefined;
+		day = dayjs(firstVal).format('YYYY-MM-DD');
 
 		const options: LoadCureOption = {
 			animationDuration: 200,
@@ -247,7 +243,7 @@ export function useLoadCure(
 		let result: Array<[string, any, any]> = [];
 		if (isArray(xData) && isArray(data)) {
 			result = data.map((val, index) => {
-				let xVal = xData[index] || '';
+				const xVal = xData[index] || '';
 				const tooltipVal = {
 					value: val,
 					time: xVal.split(' ')[1],

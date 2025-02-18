@@ -1,0 +1,4 @@
+{
+	"root": true,
+	"extends": ["@dl-element/eslint-config"]
+}

@@ -16,14 +16,14 @@ const customStyles = computed(() => ({
 </script>
 
 <template>
-	<i
-		class="dl-icon"
-		:class="[`dl-icon-${type}`]"
-		:style="customStyles"
-		v-bind="$attrs"
-	>
-		<slot v-bind="filterProps" />
-	</i>
+  <i
+    class="dl-icon"
+    :class="[`dl-icon-${type}`]"
+    :style="customStyles"
+    v-bind="$attrs"
+  >
+    <slot v-bind="filterProps" />
+  </i>
 </template>
 
 <style scoped>

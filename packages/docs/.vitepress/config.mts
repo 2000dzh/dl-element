@@ -39,6 +39,11 @@ export default defineConfig({
 			// 	collapsed: false,
 			// 	items: [{ text: 'map', link: 'components/map' }],
 			// },
+      {
+				text: '无限滚动组件',
+				collapsed: false,
+				items: [{ text: 'SeamlessScroll 无限滚动', link: 'components/seamless-scroll' }],
+			},
 		],
 		socialLinks: [
 			{ icon: 'github', link: 'https://github.com/2000dzh/dl-element' },

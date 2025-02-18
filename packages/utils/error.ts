@@ -19,6 +19,6 @@ export function debugWarn(scope: Error | string, msg?: string) {
 		const err = isString(scope)
 			? new DlUIError(`[${scope}]:${msg}`)
 			: scope;
-		console.warn(err);
+		console.error(err);
 	}
 }

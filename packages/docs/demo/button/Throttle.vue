@@ -5,9 +5,14 @@ function handleBtnClick() {
 
 <template>
   <p>
-    <dl-button @click="handleBtnClick"> with throttle</dl-button>
-    <dl-button :use-throttle="false" @click="handleBtnClick"
-      >without throttle</dl-button
+    <dl-button @click="handleBtnClick">
+      with throttle
+    </dl-button>
+    <dl-button
+      :use-throttle="false"
+      @click="handleBtnClick"
     >
+      without throttle
+    </dl-button>
   </p>
 </template>

@@ -217,31 +217,44 @@ defineExpose<TooltipInstance>({
 </script>
 
 <template>
-	<div class="dl-tooltip" ref="containerNode" v-on="outerEvents">
-		<slot v-if="virtualTriggering" name="default"></slot>
-		<div
-			class="dl-tooltip__trigger"
-			ref="_triggerNode"
-			v-on="events"
-			v-else
-		>
-			<slot></slot>
-		</div>
+  <div
+    ref="containerNode"
+    class="dl-tooltip"
+    v-on="outerEvents"
+  >
+    <slot
+      v-if="virtualTriggering"
+      name="default"
+    />
+    <div
+      v-else
+      ref="_triggerNode"
+      class="dl-tooltip__trigger"
+      v-on="events"
+    >
+      <slot />
+    </div>
 
-		<transition :name="transition" @after-leave="destroyPopperInstance">
-			<div
-				class="dl-tooltip__popper"
-				ref="popperNode"
-				v-on="dropdownEvents"
-				v-if="visible"
-			>
-				<slot name="content">
-					{{ content }}
-				</slot>
-				<div id="arrow" data-popper-arrow></div>
-			</div>
-		</transition>
-	</div>
+    <transition
+      :name="transition"
+      @after-leave="destroyPopperInstance"
+    >
+      <div
+        v-if="visible"
+        ref="popperNode"
+        class="dl-tooltip__popper"
+        v-on="dropdownEvents"
+      >
+        <slot name="content">
+          {{ content }}
+        </slot>
+        <div
+          id="arrow"
+          data-popper-arrow
+        />
+      </div>
+    </transition>
+  </div>
 </template>
 
 <style scoped>

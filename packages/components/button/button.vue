@@ -16,7 +16,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 	throttleDuration: 500,
 });
 const emits = defineEmits<ButtonEmits>();
-const slots = defineSlots();
+// const slots = defineSlots();
 
 const ctx = inject(BUTTON_GROUP_CTX_KEY, {});
 
@@ -50,25 +50,25 @@ defineExpose<ButtonInstance>({
 </script>
 
 <template>
-	<component
-		:is="tag"
-		class="dl-button"
-		ref="_ref"
-		:autofocus="autofocus"
-		:type="comType"
-		:disabled="disabled || loading"
-		:class="{
-			[`dl-button--${type}`]: type,
-			[`dl-button--${size}`]: size,
-			'is-plain': plain,
-			'is-round': round,
-			'is-circle': circle,
-			'is-disabled': disabled,
-			'is-loading': loading,
-		}"
-		@click="handleClick"
-	>
-		<!-- <template v-if="loading">
+  <component
+    :is="tag"
+    ref="_ref"
+    class="dl-button"
+    :autofocus="autofocus"
+    :type="comType"
+    :disabled="disabled || loading"
+    :class="{
+      [`dl-button--${type}`]: type,
+      [`dl-button--${size}`]: size,
+      'is-plain': plain,
+      'is-round': round,
+      'is-circle': circle,
+      'is-disabled': disabled,
+      'is-loading': loading,
+    }"
+    @click="handleClick"
+  >
+    <!-- <template v-if="loading">
 			<slot name="loading">
 				<dl-icon
 					class="loading-icon"
@@ -79,8 +79,8 @@ defineExpose<ButtonInstance>({
 				/>
 			</slot>
 		</template> -->
-		<slot></slot>
-	</component>
+    <slot />
+  </component>
 </template>
 
 <style scoped>

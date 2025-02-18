@@ -2,7 +2,7 @@ import { describe, test, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import type { ButtonType, ButtonSize } from './types.ts';
 
-import Icon from '../icon/icon.vue';
+// import Icon from '../icon/icon.vue';
 import Button from './button.vue';
 import ButtonGroup from './button-group.vue';
 

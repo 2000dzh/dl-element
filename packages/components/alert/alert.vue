@@ -33,36 +33,36 @@ defineExpose<AlertInstance>({
 </script>
 
 <template>
-	<transition name="dl-alert-fade">
-		<div
-			v-show="visible"
-			class="dl-alert"
-			role="alert"
-			:class="{
-				[`dl-alert__${type}`]: type,
-				[`dl-alert__${effect}`]: effect,
-				'text-center': center,
-			}"
-		>
-			<div class="dl-alert__content">
-				<span
-					class="dl-alert__title"
-					:class="{ 'with-desc': withDescription }"
-					:style="{
-						display: center ? 'flow' : 'inline',
-					}"
-				>
-					<slot name="title">{{ title }}</slot>
-				</span>
-				<p class="dl-alert__description">
-					<slot>{{ description }}</slot>
-				</p>
-				<!-- <div class="dl-alert__close" v-if="closable">
+  <transition name="dl-alert-fade">
+    <div
+      v-show="visible"
+      class="dl-alert"
+      role="alert"
+      :class="{
+        [`dl-alert__${type}`]: type,
+        [`dl-alert__${effect}`]: effect,
+        'text-center': center,
+      }"
+    >
+      <div class="dl-alert__content">
+        <span
+          class="dl-alert__title"
+          :class="{ 'with-desc': withDescription }"
+          :style="{
+            display: center ? 'flow' : 'inline',
+          }"
+        >
+          <slot name="title">{{ title }}</slot>
+        </span>
+        <p class="dl-alert__description">
+          <slot>{{ description }}</slot>
+        </p>
+        <!-- <div class="dl-alert__close" v-if="closable">
 					<DlIcon @click.stop="close" icon="xmark" />
 				</div> -->
-			</div>
-		</div>
-	</transition>
+      </div>
+    </div>
+  </transition>
 </template>
 
 <style scoped>

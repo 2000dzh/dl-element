@@ -69,9 +69,9 @@ provide(COLLAPSE_CTX_KEY, {
 </script>
 
 <template>
-	<div class="dl-collapse">
-		<slot></slot>
-	</div>
+  <div class="dl-collapse">
+    <slot />
+  </div>
 </template>
 
 <style scoped>

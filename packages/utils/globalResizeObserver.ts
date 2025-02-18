@@ -78,7 +78,7 @@ export const GlobalResizeObserver = (() => {
 				);
 			}
 
-			let callbacks = elementToCallbacks.get(element);
+			const callbacks = elementToCallbacks.get(element);
 
 			if (!callbacks) {
 				return;

@@ -1,0 +1,23 @@
+{
+	"name": "@dl-element/eslint-config",
+	"version": "1.0.0",
+	"description": "ESLint Config",
+	"main": "index.js",
+	"scripts": {
+		"clean:rely-on": "rimraf node_modules"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "8.9.0",
+		"@typescript-eslint/parser": "8.9.0",
+		"eslint-define-config": "^1.5.1",
+		"eslint-plugin-eslint-comments": "3.2.0",
+		"eslint-plugin-import": "2.26.0",
+		"eslint-plugin-vue": "9.29.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.57.1"
+	}
+}

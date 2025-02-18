@@ -40,18 +40,22 @@ const circleList = computed(() => {
 </script>
 
 <template>
-	<svg :width="size" :height="size" :viewBox="`0 0 ${size} ${size}`">
-		<circle
-			v-for="(obj, index) in circleList"
-			:key="index"
-			:cx="obj.cx"
-			:cy="obj.cy"
-			:r="obj.r"
-			fill="none"
-			:stroke="obj.stroke"
-			:stroke-width="obj.storkeWidth"
-			:stroke-dasharray="obj.strokeDasharray"
-			:stroke-dashoffset="obj.strokeDashoffset"
-		/>
-	</svg>
+  <svg
+    :width="size"
+    :height="size"
+    :viewBox="`0 0 ${size} ${size}`"
+  >
+    <circle
+      v-for="(obj, index) in circleList"
+      :key="index"
+      :cx="obj.cx"
+      :cy="obj.cy"
+      :r="obj.r"
+      fill="none"
+      :stroke="obj.stroke"
+      :stroke-width="obj.storkeWidth"
+      :stroke-dasharray="obj.strokeDasharray"
+      :stroke-dashoffset="obj.strokeDashoffset"
+    />
+  </svg>
 </template>

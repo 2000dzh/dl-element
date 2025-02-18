@@ -20,9 +20,9 @@ provide(
 </script>
 
 <template>
-	<div class="dl-button-group">
-		<slot></slot>
-	</div>
+  <div class="dl-button-group">
+    <slot />
+  </div>
 </template>
 
 <style scoped>

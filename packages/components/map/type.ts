@@ -1,4 +1,4 @@
-import type { ECharts, ComposeOption } from 'echarts/core';
+import type { ComposeOption } from 'echarts/core';
 import type { ScatterSeriesOption, MapSeriesOption } from 'echarts/charts';
 
 export type MapOption = ComposeOption<ScatterSeriesOption | MapSeriesOption>;
