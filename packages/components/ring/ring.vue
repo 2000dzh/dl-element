@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { isArray } from 'lodash-es';
-import { ringPorps } from './ring.ts';
+import { ringPorps } from './ring';
 
 defineOptions({
 	name: 'DlRing',

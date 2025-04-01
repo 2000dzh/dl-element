@@ -1,8 +1,8 @@
-import useEventListener from './useEventListener.ts';
-import useClickOutside from './useClickOutside.ts';
-import useGlobelProperties from './useGlobelProperties.ts';
-import useElementSize from './useElementSize.ts';
-import useMutationObserver from './useMutationObserver.ts'
+import useEventListener from './useEventListener';
+import useClickOutside from './useClickOutside';
+import useGlobelProperties from './useGlobelProperties';
+import useElementSize from './useElementSize';
+import useMutationObserver from './useMutationObserver'
 
 export {
 	useClickOutside,

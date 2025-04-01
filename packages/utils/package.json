@@ -1,12 +1,11 @@
 {
-  "name": "@dl-element/utils",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clean:rely-on": "rimraf node_modules"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "@dl-element/utils",
+	"main": "index.ts",
+	"license": "ISC",
+	"scripts": {
+		"clean:node-modules": "rimraf node_modules"
+	},
+	"peerDependencies": {
+		"vue": "^3.4.0"
+	}
 }

@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "clean:rely-on": "rimraf node_modules"
+    "clean:node-modules": "rimraf node_modules"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "1.9.0",

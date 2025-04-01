@@ -4,7 +4,7 @@
 	"description": "ESLint Config",
 	"main": "index.js",
 	"scripts": {
-		"clean:rely-on": "rimraf node_modules"
+		"clean:node-modules": "rimraf node_modules"
 	},
 	"keywords": [],
 	"author": "",
@@ -15,6 +15,7 @@
 		"eslint-define-config": "^1.5.1",
 		"eslint-plugin-eslint-comments": "3.2.0",
 		"eslint-plugin-import": "2.26.0",
+		"eslint-plugin-markdown": "3.0.0",
 		"eslint-plugin-vue": "9.29.1"
 	},
 	"devDependencies": {

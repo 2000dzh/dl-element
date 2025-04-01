@@ -45,7 +45,7 @@ export function useLoadCure(
 			// 初始化 ECharts 实例并赋值给 chartInstance
 			chartInstance.value = echarts.init(DlLoadCure.value);
 			// 设置图表的初始选项
-			chartInstance.value.setOption(getOptions());
+			chartInstance.value && chartInstance.value.setOption(getOptions());
 		}
 	};
 

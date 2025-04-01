@@ -17,5 +17,3 @@ const { DlLoadCure } = useLoadCure(props, emit);
     class="dl-echarts"
   />
 </template>
-
-<style scoped></style>

@@ -1,13 +1,12 @@
 {
-  "name": "@dl-element/hooks",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "clean:rely-on": "rimraf node_modules"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+	"name": "@dl-element/hooks",
+	"license": "ISC",
+	"main": "index.ts",
+	"module": "index.ts",
+	"scripts": {
+		"clean:node-modules": "rimraf node_modules"
+	},
+	"peerDependencies": {
+		"vue": "^3.4.0"
+	}
 }

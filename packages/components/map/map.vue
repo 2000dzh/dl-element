@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { mapEmit, mapProps, useMap } from './map';
+import { mapEmit, mapProps, useMap } from "./map";
 
 defineOptions({
-	name: 'DlMap',
+	name: "DlMap"
 });
 
 const props = defineProps(mapProps);
@@ -38,7 +38,3 @@ const { mapBox, map1, map2, map3, map4 } = useMap(props, emit);
     />
   </div>
 </template>
-
-<style scoped>
-@import "./style.css";
-</style>

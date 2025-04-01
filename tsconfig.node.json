@@ -1,10 +1,11 @@
 {
-  "extends": "@tsconfig/node18/tsconfig.json",
-  "include": ["packages/**/**.config.ts"],
-  "compilerOptions": {
-    "composite": true,
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "types": ["node"]
-  }
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"composite": true,
+		"lib": ["ESNext"],
+		"types": ["node"],
+		"skipLibCheck": true
+	},
+	"include": ["internal/**/*", "internal/**/*.json"],
+	"exclude": ["**/dist"]
 }

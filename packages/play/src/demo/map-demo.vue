@@ -18,19 +18,19 @@ const show = ref(true);
 // console.log(time24(Date.now() - 1000 * 60 * 60 * 24));
 
 const lineData = ref({
-	xAxisData: time48(),
-	seriesData: Array.from({ length: 1440 }, (_, index) => index + 100),
+	xAxisData: time96(),
+	seriesData: Array.from({ length: 288 }, (_, index) => index + 100),
 	unit: [],
 });
 </script>
 
 <template>
-	<div style="width: 50%; height: 800px">
-    {{ mapName }}
-		<dl-button @click="mapName = '江苏'">江苏</dl-button>
-		<dl-button @click="mapName = '安徽'">安徽</dl-button>
-		<map1 v-model="mapName" :seriesData="seriesData"></map1>
-		<dl-load-cure></dl-load-cure>
+	<div style="width: 90%; height: 800px">
+		{{ mapName }}
+		<button @click="mapName = '江苏'">江苏</button>
+		<button @click="mapName = '安徽'">安徽</button>
+		<!-- <map1 v-model="mapName" :seriesData="seriesData"></map1> -->
+		<dl-load-cure :lineData="lineData"></dl-load-cure>
 	</div>
 </template>
 

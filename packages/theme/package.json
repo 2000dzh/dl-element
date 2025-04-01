@@ -4,9 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean:rely-on": "rimraf node_modules"
+    "start": "tsx node_modules/gulp/bin/gulp.js -f gulpfile.ts",
+    "clean:node-modules": "rimraf node_modules",
+    "clean:dist": "rimraf dist"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/gulp-autoprefixer": "^0.0.37",
+    "@types/gulp-sass": "^5.0.4",
+    "chalk": "5.4.1",
+    "consola": "3.4.0",
+    "cssnano": "^7.0.6",
+    "gulp": "5.0.0",
+    "gulp-autoprefixer": "^9.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^6.0.0",
+    "postcss": "^8.5.3",
+    "tsx": "^4.19.3"
+  }
 }

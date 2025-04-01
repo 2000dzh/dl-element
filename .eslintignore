@@ -4,4 +4,5 @@ public
 pnpm-lock.yaml
 play
 coverage
+log
 packages/docs/.vitepress/cache/*

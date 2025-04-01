@@ -1,5 +1,5 @@
 import { isSet } from 'lodash-es';
-import { defaultWindow } from '@dl-element/utils';
+import { defaultWindow } from './general';
 
 interface ResizeObserverEntry {
 	readonly target: Element;

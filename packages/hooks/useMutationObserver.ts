@@ -1,6 +1,6 @@
 import { computed, toValue, watch } from 'vue';
 import { defaultWindow } from '@dl-element/utils';
-import { unrefElement } from './unrefElement.ts';
+import { unrefElement } from './unrefElement';
 import type {
 	MaybeComputedElementRef,
 	UnRefElementReturn,

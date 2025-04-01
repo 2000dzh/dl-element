@@ -1,0 +1,22 @@
+.dl-seamless-scroll {
+	.dl-seamless-scroll__wrapper {
+		width: 100%;
+		height: 100%;
+		position: relative;
+		overflow: hidden;
+
+		.dl-seamless-scroll__box {
+			padding: 0;
+
+			.dl-seamless-scroll__box-top,
+			.dl-seamless-scroll__box-bottom {
+				overflow: hidden;
+			}
+
+			.seamless-scroll__box-top > *,
+			.seamless-scroll__box-bottom > * {
+				background-size: 100% 100%;
+			}
+		}
+	}
+}

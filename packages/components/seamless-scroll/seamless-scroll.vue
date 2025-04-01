@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SeamlessScrollProps, useSeamlessScroll } from './seamless-scroll.ts';
+import { SeamlessScrollProps, useSeamlessScroll } from './seamless-scroll';
 
 defineOptions({
 	name: 'DlSeamlessScroll',
@@ -39,7 +39,3 @@ const { wrapperRef, boxRef, topRef, showShadowDiv, onMouseOver, onMouseOut } =
     </div>
   </div>
 </template>
-
-<style scoped>
-@import './style.css';
-</style>

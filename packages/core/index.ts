@@ -1,6 +1,6 @@
-import makeInstaller from './defaults.ts';
-import componens from './componens.ts';
-import '@dl-element/theme/index.css';
+import makeInstaller from './defaults';
+import componens from './componens';
+// import '@dl-element/theme/index.css';
 
 const installer = makeInstaller(componens);
 

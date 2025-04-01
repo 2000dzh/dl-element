@@ -15,6 +15,8 @@ module.exports = defineConfig({
     'plugin:import/recommended',
     // 管理和规范 ESLint 指令注释如 //eslint-disable-line、/* eslint-disable */ 等(eslint-plugin-eslint-comments)
     'plugin:eslint-comments/recommended',
+    // markdown 文件中检查代码块的语法和风格
+    'plugin:markdown/recommended',
     'plugin:vue/vue3-recommended',
     'plugin:@typescript-eslint/recommended',
   ],
@@ -46,6 +48,15 @@ module.exports = defineConfig({
         ],
       },
     },
+
+    {
+      files: ['**/*.md/*.js', '**/*.md/*.ts'],
+      rules: {
+        'no-console': 'off',
+        'import/no-unresolved': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+      },
+    },
   ],
   rules: {
     // js/ts
@@ -63,6 +74,7 @@ module.exports = defineConfig({
     'vue/multi-word-component-names': 'off',
 
     // import
+    'import/no-unresolved': 'off',
     // 关闭模块的命名导入与导出的名称完全匹配校验
     'import/named': 'off',
     'import/no-named-as-default': 'off',

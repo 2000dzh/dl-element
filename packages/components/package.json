@@ -1,18 +1,12 @@
 {
-  "name": "@dl-element/components",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "vitest --run --coverage",
-    "clean:rely-on": "rimraf node_modules"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@vitest/coverage-v8": "1.4.0",
-    "@vue/test-utils": "2.4.5",
-    "jsdom": "24.0.0"
-  }
+	"name": "@dl-element/components",
+	"license": "ISC",
+	"main": "index.ts",
+	"module": "index.ts",
+	"scripts": {
+		"clean:node-modules": "rimraf node_modules"
+	},
+	"peerDependencies": {
+		"vue": "^3.4.0"
+	}
 }

@@ -39,10 +39,10 @@ const handler = () => {
 			</div>
 		</DlSeamlessScroll>
 
-		<dl-button @click="add">增加元素</dl-button>
-		<dl-button @click="subtract">减少元素</dl-button>
+		<button @click="add">增加元素</button>
+		<button @click="subtract">减少元素</button>
 
-		<dl-button @click="handler">重新赋值</dl-button>
+		<button @click="handler">重新赋值</button>
 	</div>
 </template>
 

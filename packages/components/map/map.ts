@@ -2,8 +2,8 @@ import { ref, shallowRef, computed, onMounted, onUnmounted, watch } from 'vue';
 import { each, isArray } from 'lodash-es';
 import { useGlobelProperties, useEventListener } from '@dl-element/hooks';
 import { definePropType, GlobalResizeObserver } from '@dl-element/utils';
-import { formatMapData } from './util.ts';
-import { MAP_ASSETS } from './enum.ts';
+import { formatMapData } from './util';
+import { MAP_ASSETS } from './enum';
 // import application from './assets/application.png';
 // import mapTexture from './assets/dituwenli';
 // import selectMapTexture from './assets/dituwenli1';
@@ -185,9 +185,7 @@ export function useMap(
 						formatter(params) {
 							const val: SeriesDataItem | Record<string, any> =
 								isArray(params.value)
-									? (params.value.at(
-											-1
-										) as unknown as SeriesDataItem) || {}
+									? (params.value[params.value.length - 1] as unknown as SeriesDataItem) || {}
 									: {};
 
 							return `当前区域客户数: {a|${val.value}}个`;

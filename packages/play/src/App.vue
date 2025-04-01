@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-// import Demo from './demo/map-demo.vue';
-import Demo from './demo/seamless-scroll-demo.vue';
+import Demo from './demo/map-demo.vue';
+// import Demo from './demo/seamless-scroll-demo.vue';
 // import Ceshi from './demo/ceshi.vue';
 
 const flag = ref(true);
@@ -19,7 +19,7 @@ onMounted(() => {
 
 		<!-- <Ceshi ref="ceshidemo" /> -->
 
-		<dl-button @click="flag = !flag">切换</dl-button>
+		
 	</div>
 </template>
 

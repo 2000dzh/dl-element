@@ -1,5 +1,5 @@
 import { isString } from 'lodash-es';
-import { isProd } from './general.ts';
+import { isProd } from './general';
 
 class DlUIError extends Error {
 	constructor(msg: string) {

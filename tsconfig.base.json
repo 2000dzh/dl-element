@@ -1,0 +1,46 @@
+{
+	"compilerOptions": {
+		/* 基本选项 */
+		// 输出文件夹
+		"outDir": "dist",
+		// 生成js代码的 ECMAScript 目标版本
+		"target": "es2018",
+		// 生成代js码的模块标准
+		"module": "ESNext",
+		// 指定 TypeScript 编译器查找 TypeScript 文件的根目录，通常用于控制输入文件的搜索路径。假设你的 TypeScript 文件存储在项目的根目录下，你可以配置为 './'
+		"rootDir": "./",
+		// 是否生成 .map 文件
+		"sourceMap": false,
+		// 是否编译 JS 文件
+		"allowJs": true,
+		// 删除注释
+		"removeComments": false,
+    // 严格区分大小写
+    "forceConsistentCasingInFileNames": true,
+
+		/* 严格的类型检查 */
+		// 启用所有严格类型检查
+		"strict": true,
+		// 检查未使用的局部变量
+		"noUnusedLocals": true,
+
+		/* 模块解析 */
+		// 模块解析策略
+		"moduleResolution": "bundler",
+		// 允许从没有默认导出的模块默认导入
+		"allowSyntheticDefaultImports": true,
+		// 自动解析JSON文件
+		"resolveJsonModule": true,
+		//  通过创建命名空间实现 CommonJS 兼容性
+		"esModuleInterop": true,
+		// types用来指定需要包含的模块，只有在这里列出的模块的声明文件才会被加载进来
+		"types": [],
+		// 模块路径解析的基准目录
+		"baseUrl": "./",
+		// 模块名称到基于 baseUrl 的路径映射表
+		"paths": {
+			"@dl-element/*": ["packages/*"],
+			"dl-element": ["packages/core"]		
+    },
+	}
+}

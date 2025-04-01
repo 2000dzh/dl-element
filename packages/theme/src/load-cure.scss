@@ -1,0 +1,28 @@
+@use './common/echarts';
+
+.dl-tooltip {
+	padding: 10px;
+	border-radius: 6px;
+	background-color: rgb(255, 255, 255, 0.7);
+
+	.dl-tooltip-title {
+		color: #333;
+		font-size: 12px;
+		font-weight: 700;
+		text-align: left;
+	}
+
+	.dl-tooltip-list {
+		display: flex;
+		align-items: center;
+		.dl-tooltip-list-name {
+			font-size: 12px;
+			color: #666;
+			margin: 0px 3px 0px 5px;
+		}
+		.dl-tooltip-list-value {
+			font-size: 12px;
+			color: #333;
+		}
+	}
+}
