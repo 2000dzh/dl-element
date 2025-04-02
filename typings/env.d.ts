@@ -1,13 +1,13 @@
 declare global {
-  const process: {
-    env: {
-      NODE_ENV: string
-    }
-  }
+	const process: {
+		env: {
+			NODE_ENV: string;
+		};
+	};
+
+	const PROD: boolean;
+	const DEV: boolean;
+	const TEST: boolean;
 }
 
-declare const PROD: boolean;
-declare const DEV: boolean;
-declare const TEST: boolean;
-
-export {}
+export {};

@@ -1,18 +1,15 @@
-import { isDev } from '@dl-element/utils';
-
 const oneMinutes = 1 * 60 * 1000;
 const versioned = (url: string) => {
 	return new Promise((resolve, reject) => {
 		fetch(`${url}?_=${Date.now()}`)
-			.then((res) => res.json())
+			.then(res => res.json())
 			.then(resolve)
 			.catch(reject);
 	});
 };
 
 export class RefreshBrowserScript {
-	url = '/dl-element/version.json';
-  // @ts-ignore
+	url = "/dl-element/version.json";
 	version = __version__;
 	now = 0;
 	status = false;
@@ -20,17 +17,11 @@ export class RefreshBrowserScript {
 	__visibilitychange__fn__;
 
 	constructor() {
-		if (isDev) {
+		if (import.meta.env.SSR) {
 			return;
 		}
-		window.addEventListener(
-			'focus',
-			(this.__focus__fn__ = this.focus.bind(this))
-		);
-		document.addEventListener(
-			'visibilitychange',
-			(this.__visibilitychange__fn__ = this.visibilitychange.bind(this))
-		);
+		window.addEventListener("focus", (this.__focus__fn__ = this.focus.bind(this)));
+		document.addEventListener("visibilitychange", (this.__visibilitychange__fn__ = this.visibilitychange.bind(this)));
 
 		this.execute();
 	}
@@ -45,7 +36,7 @@ export class RefreshBrowserScript {
 	}
 
 	visibilitychange() {
-		if (document.visibilityState !== 'visible') {
+		if (document.visibilityState !== "visible") {
 			return;
 		}
 		this.execute();
@@ -56,6 +47,7 @@ export class RefreshBrowserScript {
 			return;
 		}
 		const version = await this.fetchData();
+		console.log(version);
 		const samecase = this.equalVersion(this.version, version);
 		if (samecase) {
 			return;
@@ -75,11 +67,11 @@ export class RefreshBrowserScript {
 	}
 
 	bindEvent() {
-		document.addEventListener('keypress', this.refreshBrowser);
+		document.addEventListener("keypress", this.refreshBrowser);
 	}
 
 	unbingEvent() {
-		document.removeEventListener('keypress', this.refreshBrowser);
+		document.removeEventListener("keypress", this.refreshBrowser);
 	}
 
 	throwMessage() {
@@ -98,16 +90,13 @@ export class RefreshBrowserScript {
 		// 		this.skipRefresh();
 		// 		this.unbingEvent();
 		// 	});
-    alert('发现新版本点击更新')
+		alert("发现新版本点击更新");
 		this.refreshBrowser;
 	}
 
 	skipRefresh() {
-		window.removeEventListener('focus', this.__focus__fn__);
-		document.removeEventListener(
-			'visibilitychange',
-			this.__visibilitychange__fn__
-		);
+		window.removeEventListener("focus", this.__focus__fn__);
+		document.removeEventListener("visibilitychange", this.__visibilitychange__fn__);
 		this.status = false;
 	}
 

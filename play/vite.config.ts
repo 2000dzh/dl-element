@@ -9,7 +9,7 @@ export default defineConfig({
 		alias: [
 			{
 				find: /^dl-element(\/(es|lib))?$/,
-				replacement: path.resolve(__dirname, '../core/index.ts'),
+				replacement: path.resolve(__dirname, '../packages/core/index.ts'),
 			}
 		],
 	},

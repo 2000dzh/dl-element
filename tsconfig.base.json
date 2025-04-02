@@ -40,7 +40,7 @@
 		// 模块名称到基于 baseUrl 的路径映射表
 		"paths": {
 			"@dl-element/*": ["packages/*"],
-			"dl-element": ["packages/core"]		
+			"dl-element": ["packages/core/index.ts"]
     },
 	}
 }

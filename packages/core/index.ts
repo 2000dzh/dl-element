@@ -1,6 +1,5 @@
 import makeInstaller from './defaults';
 import componens from './componens';
-// import '@dl-element/theme/index.css';
 
 const installer = makeInstaller(componens);
 

@@ -14,6 +14,7 @@
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+    "@dl-element/build-utils": "workspace:*",
 		"git-revision-webpack-plugin": "^5.0.0",
 		"vitepress": "1.0.0-rc.44"
 	},

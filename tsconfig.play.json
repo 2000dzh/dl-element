@@ -4,5 +4,12 @@
 		"allowJs": true,
 		"lib": ["ESNext", "DOM", "DOM.Iterable"]
 	},
-	"include": ["packages", "typings/global.d.ts", "typings/env.d.ts"]
+	"include": [
+		"packages",
+		"typings/global.d.ts",
+		"typings/env.d.ts",
+
+		// playground
+		"play/src/**/*"
+	]
 }
