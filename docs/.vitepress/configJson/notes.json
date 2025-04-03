@@ -5,8 +5,26 @@
 		"children": [
 			{
 				"text": "关于闭包",
-				"link": "/JavaScript/闭包"
+				"link": "/JavaScript/关于闭包"
 			}
 		]
+	},
+	"utils": {
+		"text": "工具函数",
+		"collapsed": "true",
+    "children": [
+      {
+        "text": "获取时间数据",
+        "link": "/utils/获取时间数据"
+      },
+      {
+        "text": "await-to",
+        "link": "/utils/await-to"
+      },
+      {
+        "text": "重试请求",
+        "link": "/utils/重试请求"
+      }
+    ]
 	}
 }

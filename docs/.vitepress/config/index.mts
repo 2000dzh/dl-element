@@ -2,6 +2,7 @@ import { containerPreview, componentPreview } from "@vitepress-demo-preview/plug
 import { PKG_NAME } from "@dl-element/build-utils";
 import nav from "./nav";
 import sidebar from "./sidebars";
+import search from "./search";
 import { getViteConfig } from "./vite";
 import type { MarkdownRenderer, UserConfig } from "vitepress";
 
@@ -10,11 +11,21 @@ const setupConfig = configEnv => {
 		title: "Dl-Element",
 		description: "记录个人成长",
 		base: `/${PKG_NAME}/`,
+		lang: "zh-Hans", //语言
 		lastUpdated: true,
 		themeConfig: {
 			nav,
 			sidebar,
-			socialLinks: [{ icon: "github", link: "https://github.com/2000dzh/dl-element" }]
+			socialLinks: [{ icon: "github", link: "https://github.com/2000dzh/dl-element" }],
+			docFooter: {
+				prev: "上一篇",
+				next: "下一篇"
+			},
+			outlineTitle: "当前页面",
+			lastUpdatedText: "最近更新时间",
+
+      // 本地搜索
+      search
 		},
 		vite: getViteConfig(configEnv),
 		markdown: {

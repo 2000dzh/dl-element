@@ -7,5 +7,5 @@ hero:
   actions:
     - theme: brand
       text: 查看笔记
-      link: /docs-md/notes/JavaScript/闭包.html
+      link: /docs-md/notes/JavaScript/关于闭包.html
 ---
