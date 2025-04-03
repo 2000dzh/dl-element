@@ -1,0 +1,12 @@
+{
+	"JavaScript": {
+		"text": "你不知道的javaScript",
+		"collapsed": "false",
+		"children": [
+			{
+				"text": "关于闭包",
+				"link": "/JavaScript/闭包"
+			}
+		]
+	}
+}

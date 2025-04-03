@@ -1,29 +1,19 @@
 import { containerPreview, componentPreview } from "@vitepress-demo-preview/plugin";
+import { PKG_NAME } from "@dl-element/build-utils";
+import nav from "./nav";
+import sidebar from "./sidebars";
 import { getViteConfig } from "./vite";
 import type { MarkdownRenderer, UserConfig } from "vitepress";
 
 const setupConfig = configEnv => {
 	const config: UserConfig<any> = {
 		title: "Dl-Element",
-		description: "高仿 ElementPlus 组件库",
-		base: "/dl-element/",
+		description: "记录个人成长",
+		base: `/${PKG_NAME}/`,
+		lastUpdated: true,
 		themeConfig: {
-			nav: [
-				{ text: "开始使用", link: "/home" },
-				{ text: "组件", link: "/components/button" }
-			],
-			sidebar: [
-				{
-					text: "指南",
-					collapsed: false,
-					items: [{ text: "快速开始", link: "/home" }]
-				},
-				{
-					text: "无限滚动组件",
-					collapsed: false,
-					items: [{ text: "SeamlessScroll 无限滚动", link: "components/seamless-scroll" }]
-				}
-			],
+			nav,
+			sidebar,
 			socialLinks: [{ icon: "github", link: "https://github.com/2000dzh/dl-element" }]
 		},
 		vite: getViteConfig(configEnv),

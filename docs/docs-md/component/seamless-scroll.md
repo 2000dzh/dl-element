@@ -8,7 +8,7 @@ description: SeamlessScroll 组件文档
 效果如下
 
 ::: preview
-demo-preview=../demo/seamless-scroll/demo-base.vue
+demo-preview=../../examples/seamless-scroll/demo-base.vue
 :::
 
 ## 设置停留和滚动时间
@@ -16,5 +16,5 @@ demo-preview=../demo/seamless-scroll/demo-base.vue
 效果如下
 
 ::: preview
-demo-preview=../demo/seamless-scroll/demo-props.vue
+demo-preview=../../examples/seamless-scroll/demo-props.vue
 :::
