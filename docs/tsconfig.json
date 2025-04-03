@@ -12,7 +12,7 @@
 		"skipLibCheck": true,
 		"lib": ["WebWorker", "DOM", "ESNext"],
 		"paths": {
-			"dl-element": ["../core/index.ts"]
+			"dl-element": ["../packages/core/index.ts"]
 		},
 		"jsx": "preserve"
 	},
