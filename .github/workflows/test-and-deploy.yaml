@@ -48,6 +48,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Build BuildUtils
+        run: cd internal/build-utils && pnpm stub
+
       - name: Build Components
         run: npm run build
 
