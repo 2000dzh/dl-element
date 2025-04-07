@@ -12,19 +12,39 @@
 	"utils": {
 		"text": "工具函数",
 		"collapsed": "true",
-    "children": [
-      {
-        "text": "获取时间数据",
-        "link": "/utils/获取时间数据"
-      },
-      {
-        "text": "await-to",
-        "link": "/utils/await-to"
-      },
-      {
-        "text": "重试请求",
-        "link": "/utils/重试请求"
-      }
-    ]
+		"children": [
+			{
+				"text": "获取时间数据",
+				"link": "/utils/获取时间数据"
+			},
+			{
+				"text": "await-to",
+				"link": "/utils/await-to"
+			},
+			{
+				"text": "重试请求",
+				"link": "/utils/重试请求"
+			},
+			{
+				"text": "使用IIFE提升性能",
+				"link": "/utils/使用IIFE提升性能"
+			},
+			{
+				"text": "倒计时",
+				"link": "/utils/倒计时"
+			},
+			{
+				"text": "时间处理相关",
+				"link": "/utils/时间处理相关"
+			},
+			{
+				"text": "常用正则",
+				"link": "/utils/常用正则"
+			},
+			{
+				"text": "树形结构和扁平结构数据相关",
+				"link": "/utils/树形结构和扁平结构数据相关"
+			}
+		]
 	}
 }
