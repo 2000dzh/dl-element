@@ -4,21 +4,23 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "vitepress dev",
+		"dev": "SET NODE_ENV=development & vitepress dev",
 		"build": "vitepress build",
 		"preview": "vitepress preview",
 		"analyze": "vitepress build --mode analyze",
-    "clean:node-modules": "rimraf node_modules"
+		"clean:node-modules": "rimraf node_modules"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
-    "@dl-element/build-utils": "workspace:*",
+		"@dl-element/build-utils": "workspace:*",
 		"git-revision-webpack-plugin": "^5.0.0",
+		"rollup-plugin-visualizer": "^5.14.0",
 		"vitepress": "1.0.0-rc.44"
 	},
 	"dependencies": {
+		"@mdit-vue/shared": "^2.1.3",
 		"@vitepress-demo-preview/component": "^2.3.2",
 		"@vitepress-demo-preview/plugin": "^1.2.3"
 	}

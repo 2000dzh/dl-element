@@ -3,16 +3,18 @@ import { PKG_NAME } from "@dl-element/build-utils";
 import nav from "./nav";
 import sidebar from "./sidebars";
 import search from "./search";
+import head from "./head";
 import { getViteConfig } from "./vite";
 import type { MarkdownRenderer, UserConfig } from "vitepress";
 
 const setupConfig = configEnv => {
 	const config: UserConfig<any> = {
-		title: "Dl-Element",
+		title: "前端笔记",
 		description: "记录个人成长",
 		base: `/${PKG_NAME}/`,
 		lang: "zh-Hans", //语言
 		lastUpdated: true,
+    head,
 		themeConfig: {
 			nav,
 			sidebar,

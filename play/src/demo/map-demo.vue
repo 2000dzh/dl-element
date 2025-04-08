@@ -29,8 +29,8 @@ const lineData = ref({
 		{{ mapName }}
 		<button @click="mapName = '江苏'">江苏</button>
 		<button @click="mapName = '安徽'">安徽</button>
-		<!-- <map1 v-model="mapName" :seriesData="seriesData"></map1> -->
-		<dl-load-cure :lineData="lineData"></dl-load-cure>
+		<dl-map v-model="mapName" :seriesData="seriesData"></dl-map>
+		<!-- <dl-load-cure :lineData="lineData"></dl-load-cure> -->
 	</div>
 </template>
 
