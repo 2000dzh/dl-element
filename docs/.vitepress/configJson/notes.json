@@ -46,5 +46,37 @@
 				"link": "/utils/树形结构和扁平结构数据相关"
 			}
 		]
+	},
+	"pkgManagers": {
+		"text": "包管理工具",
+		"collapsed": "true",
+		"children": [
+			{
+				"text": "npm",
+				"link": "/pkgManagers/npm"
+			},
+			{
+				"text": "pnpm",
+				"link": "/pkgManagers/pnpm"
+			},
+			{
+				"text": "package文件属性作用",
+				"link": "/pkgManagers/package文件属性作用"
+			},
+			{
+				"text": "管理node版本(nvm)",
+				"link": "/pkgManagers/管理node版本(nvm)"
+			}
+		]
+	},
+	"Vue2": {
+		"text": "Vue2",
+		"collapsed": "true",
+		"children": [
+      {
+				"text": "小技巧和知识点",
+				"link": "/Vue2/小技巧和知识点"
+			}
+    ]
 	}
 }

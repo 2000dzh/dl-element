@@ -1,5 +1,8 @@
 import { deIndex } from "@dl-element/build-utils";
 import { visualizer } from "rollup-plugin-visualizer";
+import AutoImport from "unplugin-auto-import/vite";
+import Components from "unplugin-vue-components/vite";
+import { TDesignResolver } from "unplugin-vue-components/resolvers";
 import { VitePluginBuildVersion, GeneratVersion } from "../plugins/vitePluginBuildVersion";
 import type { Plugin, UserConfig } from "vitepress";
 
@@ -18,6 +21,22 @@ export const getViteConfig = ({ mode }: getViteConfigType): ViteConfig => {
 			// 	filename: "stats.html", // 分析图生成的文件名
 			// 	brotliSize: true // 统计并显示brotli
 			// })
+
+			// 按需引用 tdesign-vue-next 组件
+			AutoImport({
+				resolvers: [
+					TDesignResolver({
+						library: "vue-next"
+					})
+				]
+			}),
+			Components({
+				resolvers: [
+					TDesignResolver({
+						library: "vue-next"
+					})
+				]
+			})
 		],
 		resolve: {
 			alias: [

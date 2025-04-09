@@ -5,4 +5,5 @@ pnpm-lock.yaml
 play
 coverage
 log
-packages/docs/.vitepress/cache/*
+docs/.vitepress/cache/*
+docs/components.d.ts

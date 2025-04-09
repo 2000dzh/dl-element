@@ -3,7 +3,7 @@ import DefaultTheme from "vitepress/theme";
 import { h } from "vue";
 import DlElement from "dl-element";
 import "@vitepress-demo-preview/component/dist/style.css";
-import { globals } from "../vitepress";
+import { globals, VPMyComponent } from "../vitepress";
 import { RefreshBrowserScript } from "../utils/refreshBrowserScript";
 import type { App } from "vue";
 
@@ -20,7 +20,7 @@ export default {
 			props.class = frontmatter.value.mLayoutClass;
 		}
 
-		return h(DefaultTheme.Layout, props);
+		return h(DefaultTheme.Layout, props, VPMyComponent);
 	},
 	enhanceApp({ app }: { app: App }) {
 		app.use(DlElement);

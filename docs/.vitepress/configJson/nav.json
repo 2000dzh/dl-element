@@ -1,4 +1,18 @@
 {
+	"常用工具": [
+		{
+			"icon": "https://developer.mozilla.org/favicon-48x48.bc390275e955dacb2e65.png",
+			"title": "MDN",
+			"desc": "前端 API 查询",
+			"link": "https://developer.mozilla.org/zh-CN/"
+		},
+    {
+      "icon": "https://www.bootcdn.cn/assets/ico/favicon.ico",
+      "title": "Bootcdn",
+			"desc": "稳定、快速、免费的前端开源项目 CDN 加速服务",
+      "link": "https://www.bootcdn.cn/"
+    }
+	],
 	"Vue 生态": [
 		{
 			"icon": "https://cn.vuejs.org/logo.svg",
@@ -31,6 +45,26 @@
 			"title": "Ant Design",
 			"desc": "一套企业级 UI 设计语言和 React 组件库",
 			"link": "https://ant-design.antgroup.com/index-cn"
+		}
+	],
+	"编译&构建&打包": [
+		{
+			"icon": "https://www.webpackjs.com/icon_180x180.png",
+			"title": "Webpack 中文网",
+			"desc": "一个用于现代 JavaScript 应用程序的静态模块打包工具",
+			"link": "https://www.webpackjs.com"
+		},
+		{
+			"icon": "https://cn.vitejs.dev/logo.svg",
+			"title": "Vite 中文文档",
+			"desc": "下一代前端工具链",
+			"link": "https://cn.vitejs.dev"
+		},
+		{
+			"icon": "https://www.rollupjs.com/img/favicon.png",
+			"title": "Rollup",
+			"desc": "Rollup 是一个 JavaScript 模块打包器",
+			"link": "https://www.rollupjs.com"
 		}
 	]
 }
