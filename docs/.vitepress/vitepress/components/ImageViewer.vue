@@ -15,7 +15,7 @@ type PreviewImageInfo = {
 };
 
 const globalConfig = zhConfig as unknown as GlobalConfigProvider;
-const { isDark } = useData();
+const { isDark, frontmatter } = useData();
 
 // tdesign 暗色切换 https://tdesign.tencent.com/vue-next/dark-mode
 watch(isDark, () => {
@@ -38,6 +38,11 @@ function previewImage(e: Event) {
 	// 绑定事件的元素
 	const currentTarget = e.currentTarget as HTMLElement;
 
+	// 网址导航服务页面不展示
+	if (frontmatter.value.mLayoutClass === "d-nav-layout") {
+		return;
+	}
+
 	if (target.tagName.toLowerCase() === "img") {
 		const imgs = currentTarget.querySelectorAll<HTMLImageElement>(".content-container .main img");
 
@@ -51,8 +56,6 @@ function previewImage(e: Event) {
 
 		show.value = true;
 	}
-
-	console.log(currentTarget);
 }
 
 onMounted(() => {

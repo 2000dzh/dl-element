@@ -78,5 +78,15 @@
 				"link": "/Vue2/小技巧和知识点"
 			}
     ]
-	}
+	},
+  "Vue3": {
+    "text": "Vue3",
+		"collapsed": "true",
+    "children": [
+      {
+        "text": "小技巧和知识点",
+        "link": "/Vue3/小技巧和知识点"
+      }
+    ]
+  }
 }

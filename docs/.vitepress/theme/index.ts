@@ -4,7 +4,7 @@ import { h } from "vue";
 import DlElement from "dl-element";
 import "@vitepress-demo-preview/component/dist/style.css";
 import { globals, VPMyComponent } from "../vitepress";
-import { RefreshBrowserScript } from "../utils/refreshBrowserScript";
+// import { RefreshBrowserScript } from "../utils/refreshBrowserScript";
 import type { App } from "vue";
 
 export default {
@@ -18,6 +18,9 @@ export default {
 		// 添加自定义 class
 		if (frontmatter.value && frontmatter.value.mLayoutClass) {
 			props.class = frontmatter.value.mLayoutClass;
+		} else {
+			// 默认 class
+			props.class = "d-home-layout";
 		}
 
 		return h(DefaultTheme.Layout, props, VPMyComponent);
@@ -31,10 +34,10 @@ export default {
 
 		app.provide("DEV", import.meta.env.MODE === "development");
 
-		if (import.meta.env.MODE === "production") {
-			if (!import.meta.env.SSR) {
-				new RefreshBrowserScript();
-			}
-		}
+		// if (import.meta.env.MODE === "production") {
+		// 	if (!import.meta.env.SSR) {
+		// 		new RefreshBrowserScript();
+		// 	}
+		// }
 	}
 };

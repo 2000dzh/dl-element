@@ -6,12 +6,20 @@
 			"desc": "前端 API 查询",
 			"link": "https://developer.mozilla.org/zh-CN/"
 		},
-    {
-      "icon": "https://www.bootcdn.cn/assets/ico/favicon.ico",
-      "title": "Bootcdn",
+		{
+			"icon": "https://www.bootcdn.cn/assets/ico/favicon.ico",
+			"title": "Bootcdn",
 			"desc": "稳定、快速、免费的前端开源项目 CDN 加速服务",
-      "link": "https://www.bootcdn.cn/"
-    }
+			"link": "https://www.bootcdn.cn/"
+		}
+	],
+	"AI": [
+		{
+			"icon": "https://statics.moonshot.cn/kimi-web-seo/assets/favicon-OXkYivQY.ico",
+			"title": "Kimi",
+			"desc": "",
+			"link": "https://kimi.moonshot.cn/"
+		}
 	],
 	"Vue 生态": [
 		{
