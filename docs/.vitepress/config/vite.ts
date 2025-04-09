@@ -28,7 +28,8 @@ export const getViteConfig = ({ mode }: getViteConfigType): ViteConfig => {
 					TDesignResolver({
 						library: "vue-next"
 					})
-				]
+				],
+				dts: false // 禁用类型文件生成
 			}),
 			Components({
 				resolvers: [
