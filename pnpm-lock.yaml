@@ -147,6 +147,9 @@ importers:
       '@vitepress-demo-preview/plugin':
         specifier: ^1.2.3
         version: 1.4.0(markdown-it-container@3.0.0)(vitepress@1.0.0-rc.44(@algolia/client-search@5.23.1)(@types/node@20.11.20)(@types/react@18.3.11)(axios@1.7.7)(postcss@8.5.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.85.1)(search-insights@2.17.3)(sortablejs@1.15.6)(terser@5.34.1)(typescript@5.4.2))(vue@3.4.19(typescript@5.4.2))
+      animate.css:
+        specifier: ^4.1.1
+        version: 4.1.1
       tdesign-vue-next:
         specifier: ^1.11.5
         version: 1.11.5(vue@3.4.19(typescript@5.4.2))
@@ -3056,6 +3059,9 @@ packages:
 
   alien-signals@1.0.13:
     resolution: {integrity: sha512-OGj9yyTnJEttvzhTUWuscOvtqxq5vrhF7vL9oS0xJ2mK0ItPYP1/y+vCFebfxoEyAz0++1AIwJ5CMr+Fk3nDmg==}
+
+  animate.css@4.1.1:
+    resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
 
   ansi-colors@1.1.0:
     resolution: {integrity: sha512-SFKX67auSNoVR38N3L+nvsPjOE0bybKTYbkf5tRvushrAPQ9V75huw0ZxBkKVeRU9kqH3d6HA4xTckbwZ4ixmA==}
@@ -11326,6 +11332,8 @@ snapshots:
 
   alien-signals@1.0.13: {}
 
+  animate.css@4.1.1: {}
+
   ansi-colors@1.1.0:
     dependencies:
       ansi-wrap: 0.1.0
@@ -15716,7 +15724,7 @@ snapshots:
   terser@5.34.1:
     dependencies:
       '@jridgewell/source-map': 0.3.6
-      acorn: 8.14.0
+      acorn: 8.14.1
       commander: 2.20.3
       source-map-support: 0.5.21
 
@@ -16610,7 +16618,7 @@ snapshots:
       '@webassemblyjs/ast': 1.14.1
       '@webassemblyjs/wasm-edit': 1.14.1
       '@webassemblyjs/wasm-parser': 1.14.1
-      acorn: 8.14.0
+      acorn: 8.14.1
       browserslist: 4.24.4
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.17.1

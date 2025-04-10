@@ -1,6 +1,36 @@
 .vp-doc a {
 	text-decoration: none;
 }
+.VPHome {
+	.vp-doc {
+		max-width: 1400px !important;
+		padding: 0px !important;
+	}
+}
+
+.d-home-layout {
+	@media (min-width: 1440px) {
+		.VPSidebar {
+			padding-left: 20px !important;
+			width: 240px !important;
+		}
+		.VPNavBar.has-sidebar .title {
+			padding-left: 10px !important;
+			width: 230px !important;
+		}
+		.VPContent.has-sidebar {
+			padding-left: 240px !important;
+			padding-right: 0px !important;
+		}
+		.VPNavBar.has-sidebar .content {
+			padding-left: 240px !important;
+		}
+	}
+
+	.VPDoc.has-aside .content-container {
+		max-width: 100% !important;
+	}
+}
 
 .d-home-layout {
 	.VPDoc img {

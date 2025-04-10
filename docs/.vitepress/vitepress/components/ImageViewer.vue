@@ -39,7 +39,7 @@ function previewImage(e: Event) {
 	const currentTarget = e.currentTarget as HTMLElement;
 
 	// 网址导航服务页面不展示
-	if (frontmatter.value.mLayoutClass === "d-nav-layout") {
+	if (frontmatter.value.dLayoutClass === "d-nav-layout") {
 		return;
 	}
 

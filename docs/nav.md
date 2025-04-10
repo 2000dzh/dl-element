@@ -1,6 +1,6 @@
 ---
 description: 网址导航服务
-mLayoutClass: d-nav-layout
+dLayoutClass: d-nav-layout
 outline: [2, 3, 4]
 editLink: false
 ---

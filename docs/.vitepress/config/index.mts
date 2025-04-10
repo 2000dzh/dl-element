@@ -14,7 +14,7 @@ const setupConfig = configEnv => {
 		base: `/${PKG_NAME}/`,
 		lang: "zh-Hans", //语言
 		lastUpdated: true,
-    head,
+		head,
 		themeConfig: {
 			nav,
 			sidebar,
@@ -25,9 +25,13 @@ const setupConfig = configEnv => {
 			},
 			outlineTitle: "当前页面",
 			lastUpdatedText: "最近更新时间",
+			footer: {
+				message: "底部内容占位1",
+				copyright: "底部内容占位2"
+			},
 
-      // 本地搜索
-      search
+			// 本地搜索
+			search
 		},
 		vite: getViteConfig(configEnv),
 		markdown: {
