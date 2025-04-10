@@ -15,5 +15,5 @@ hero:
 <home></home>
 
 <script setup>
-import home from './.vitepress/vitepress/components/home/index.vue'
+import home from '@dv/vitepress/components/home/index.vue'
 </script>

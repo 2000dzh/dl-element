@@ -2,8 +2,8 @@ import { useData } from "vitepress";
 import DefaultTheme from "vitepress/theme";
 import { h } from "vue";
 import DlElement from "dl-element";
-import { globals, VPMyComponent } from "../vitepress";
-import { useTypingAnimation } from "../vitepress/composables/typing-animation";
+import { globals, VPMyComponent } from "@dv/vitepress";
+import { useTypingAnimation } from "@dv/vitepress/composables/typing-animation";
 // import { RefreshBrowserScript } from "../utils/refreshBrowserScript";
 import type { App } from "vue";
 

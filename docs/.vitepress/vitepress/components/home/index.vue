@@ -16,12 +16,12 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import notesLocale from "../../../configJson/notes.json";
+import { notesList } from "@dv/config/sidebars";
 import LinkBtn from "./LinkBtn.vue";
 import ArticleCard from "./ArticleCard.vue";
 
 type Item = {
-	children?: Item[];
+	items?: Item[];
 	creationTime: string;
 	text: string;
 };
@@ -31,15 +31,15 @@ function getRecentlyPosts(data) {
 	const result: Array<Omit<Item, "children">> = [];
 
 	arr.forEach(item => {
-		if (Array.isArray(item.children)) {
-			result.push(...item.children);
+		if (Array.isArray(item.items)) {
+			result.push(...item.items);
 		}
 	});
 
 	return result.sort((a, b) => new Date(b.creationTime).getTime() - new Date(a.creationTime).getTime()).slice(0, 8);
 }
 
-const recentlyPosts = ref(getRecentlyPosts(notesLocale));
+const recentlyPosts = ref(getRecentlyPosts(notesList));
 </script>
 
 <style scoped lang="scss">
@@ -66,8 +66,8 @@ const recentlyPosts = ref(getRecentlyPosts(notesLocale));
 			display: grid;
 			padding: 20px;
 			grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-			grid-row-gap: 10px;
-			grid-column-gap: 10px;
+			grid-row-gap: 20px;
+			grid-column-gap: 20px;
 			grid-auto-flow: row dense;
 			justify-content: center;
 		}

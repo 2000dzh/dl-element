@@ -35,6 +35,10 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter, withBase } from "vitepress";
+
+const router = useRouter();
+
 const props = defineProps({
 	obj: {
 		type: Object,
@@ -43,13 +47,13 @@ const props = defineProps({
 });
 
 function handleClick() {
-	window.location.href = props.obj.link;
+	props.obj.link && router.go(withBase(props.obj.link));
 }
 </script>
 
 <style scoped lang="scss">
 .article-wrapper {
-	width: 300px;
+	width: 100%;
 	-webkit-transition: 0.15s all ease-in-out;
 	transition: 0.15s all ease-in-out;
 	border-radius: 10px;

@@ -12,7 +12,8 @@
 		"skipLibCheck": true,
 		"lib": ["WebWorker", "DOM", "ESNext"],
 		"paths": {
-			"dl-element": ["../packages/core/index.ts"]
+			"dl-element": ["../packages/core/index.ts"],
+			"@dv/*": ["./.vitepress/*"]
 		},
 		"jsx": "preserve"
 	},

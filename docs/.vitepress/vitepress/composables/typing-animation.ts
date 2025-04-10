@@ -5,7 +5,6 @@ export function useTypingAnimation() {
 	const route = useRoute();
 	const { frontmatter } = useData();
 	let intersectionObserver: IntersectionObserver | null = null;
-	const filterRoutingList = ["/dl-element/"];
 
 	const addTypingAnimation = () => {
 		if (frontmatter.value.dNoAnimation) {

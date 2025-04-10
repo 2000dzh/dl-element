@@ -1,3 +1,4 @@
+import path from "node:path";
 import { deIndex } from "@dl-element/build-utils";
 import { visualizer } from "rollup-plugin-visualizer";
 import AutoImport from "unplugin-auto-import/vite";
@@ -44,6 +45,14 @@ export const getViteConfig = ({ mode }: getViteConfigType): ViteConfig => {
 				{
 					find: /^dl-element(\/(es|lib))?$/,
 					replacement: deIndex
+				},
+				// {
+				// 	find: "@dv",
+				// 	replacement: `${path.resolve(__dirname, "../vitepress")}/`
+				// }
+        {
+					find: "@dv",
+					replacement: `${path.resolve(__dirname, "../")}/`
 				}
 			]
 		},

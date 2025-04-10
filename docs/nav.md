@@ -8,9 +8,9 @@ editLink: false
 # 前端导航
 
 <script setup>
-import NAV_DATA from './.vitepress/configJson/nav.json'
+import NAV_DATA from '@dv/configJson/nav.json'
 </script>
 
 <DNavLinks v-for="(value, key) in NAV_DATA" :title="key" :items="value" />
 
-<style src="./.vitepress/vitepress/styles/nav/index.scss"></style>
+<style src="@dv/vitepress/styles/nav/index.scss"></style>
