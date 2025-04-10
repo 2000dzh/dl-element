@@ -8,7 +8,6 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    DlSeamlessScroll: typeof import('dl-element')['DlSeamlessScroll']
     TConfigProvider: typeof import('tdesign-vue-next')['ConfigProvider']
     TImageViewer: typeof import('tdesign-vue-next')['ImageViewer']
   }

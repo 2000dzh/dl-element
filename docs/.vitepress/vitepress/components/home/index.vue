@@ -16,7 +16,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { notesList } from "@dv/config/sidebars";
+import { notesList } from "../../../config/sidebars";
 import LinkBtn from "./LinkBtn.vue";
 import ArticleCard from "./ArticleCard.vue";
 

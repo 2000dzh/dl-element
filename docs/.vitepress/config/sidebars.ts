@@ -1,6 +1,6 @@
-import { MD_NAME } from "@dv/utils/constants";
-import componentLocale from "@dv/configJson/component.json";
-import notesLocale from "@dv/configJson/notes.json";
+import { MD_NAME } from "../utils/constants";
+import componentLocale from "../configJson/component.json";
+import notesLocale from "../configJson/notes.json";
 
 type Item = {
 	text: string;

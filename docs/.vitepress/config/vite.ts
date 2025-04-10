@@ -45,14 +45,6 @@ export const getViteConfig = ({ mode }: getViteConfigType): ViteConfig => {
 				{
 					find: /^dl-element(\/(es|lib))?$/,
 					replacement: deIndex
-				},
-				// {
-				// 	find: "@dv",
-				// 	replacement: `${path.resolve(__dirname, "../vitepress")}/`
-				// }
-        {
-					find: "@dv",
-					replacement: `${path.resolve(__dirname, "../")}/`
 				}
 			]
 		},
