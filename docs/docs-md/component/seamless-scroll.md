@@ -18,3 +18,9 @@ demo-preview=../../examples/seamless-scroll/demo-base.vue
 ::: preview
 demo-preview=../../examples/seamless-scroll/demo-props.vue
 :::
+
+## 支持数据项动态变化
+
+效果如下
+
+<preview path="../../examples/seamless-scroll/demo-dynamics.vue"></preview>
