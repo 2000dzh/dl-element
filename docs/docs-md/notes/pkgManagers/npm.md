@@ -25,7 +25,11 @@ echo "v18.17.0" > .nvmrc
 全局包的路径
 
 ```sh
+# 输出示例 C:\Users\用户\.npm-global\node_modules
 npm root -g
+
+# 输出示例 C:\Users\用户\.npm-global
+npm config get prefix
 ```
 
 当前项目包的路径
@@ -119,6 +123,37 @@ npm update axios
 npm update axios@3.2
 ```
 
+## 已经全局安装了pnpm和yarn，但系统仍然提示无法识别对应命令
+
+首先确认是否安装成功(通过全局包路径确认),然后再确认是否设置系统环境变量
+
+1. 获取 npm 全局路径
+
+```sh
+# 输出示例 C:\Users\用户\.npm-global
+npm config get prefix
+```
+
+2. 手动添加路径到系统环境变量
+
+- 按下 Win + S，搜索 “环境变量” → 选择 “编辑系统环境变量”
+- 点击 “环境变量” → 在 “用户变量” 或 “系统变量” 中找到 Path → 点击 “编辑”
+- 添加以下路径（根据实际输出调整）：
+
+```sh
+C:\Users\用户\.npm-global
+```
+
+- 点击 “确定” 保存所有窗口
+
+3. 重启终端
+
+- 关闭当前 PowerShell 或 VS Code 终端，重新打开后执行
+
+```sh
+pnpm --version
+```
+
 ## 脚本命令相关
 
 执行顺序：并行执行 `&`，顺序执行 `&&`
@@ -126,4 +161,3 @@ npm update axios@3.2
 例 1：`npm run script1.js & npm run script2.js`
 
 例 2：`npm run script1.js && npm run script2.js`
-
