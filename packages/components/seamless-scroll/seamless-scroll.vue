@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { SeamlessScrollProps, useSeamlessScroll } from './seamless-scroll';
+import { SeamlessScrollProps, useSeamlessScroll } from "./seamless-scroll";
 
 defineOptions({
-	name: 'DlSeamlessScroll',
+	name: "DlSeamlessScroll"
 });
 
 const props = defineProps(SeamlessScrollProps);
 
-const { wrapperRef, boxRef, topRef, showShadowDiv, onMouseOver, onMouseOut } =
-	useSeamlessScroll(props);
+const { wrapperRef, boxRef, topRef, showShadowDiv, onMouseOver, onMouseOut } = useSeamlessScroll(props);
 </script>
 
 <template>

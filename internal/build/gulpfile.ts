@@ -1,7 +1,7 @@
 import path from "node:path";
 import { mkdir, copyFile } from "node:fs/promises";
 import { series, parallel } from "gulp";
-import { copy } from "fs-extra";
+import { copy, remove } from "fs-extra";
 import { buildOutput, deGType, dePackage, dlGType, dlOutPut, dlPackage, typesDir } from "@dl-element/build-utils";
 import { withTaskName, run, runTask } from "./src";
 import { buildConfig } from "./src/build-info";
@@ -51,7 +51,10 @@ export default series(
 		)
 	),
 
-	parallel(copyTypesDefinitions, copyFiles)
+	parallel(copyTypesDefinitions, copyFiles),
+
+	// 删除 dist/types/packages/core
+	withTaskName("cleanTypeCore", () => remove(path.join(typesDir, "core")))
 ) as TaskFunction;
 
 /**

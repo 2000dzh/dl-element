@@ -51,6 +51,11 @@
 			],
 			"require": "./lib/*.js"
 		},
+    "./echarts": {
+			"types": "./es/echarts.d.ts",
+			"import": "./es/echarts.mjs",
+			"require": "./lib/echarts.js"
+		},
 		"./*": "./*"
 	},
 	"unpkg": "dist/index.full.js",

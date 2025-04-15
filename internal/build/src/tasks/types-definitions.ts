@@ -1,7 +1,7 @@
 import path from "node:path";
 import { readFile, writeFile } from "node:fs/promises";
 import { glob } from "fast-glob";
-import { copy, remove } from "fs-extra";
+import { copy } from "fs-extra";
 import { typesDir } from "@dl-element/build-utils";
 import { run, pathRewriter } from "../utils";
 
@@ -21,5 +21,4 @@ export const generateTypesDefinitions = async () => {
 	await Promise.all(rewriteTasks);
 	const sourceDir = path.join(typesDir, "core");
 	await copy(sourceDir, typesDir);
-	await remove(sourceDir);
 };

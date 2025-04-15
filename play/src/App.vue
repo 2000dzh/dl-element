@@ -2,8 +2,9 @@
 import { onMounted, ref } from 'vue';
 // import Demo from './demo/map-demo.vue';
 // import Demo from './demo/seamless-scroll-demo.vue';
-import Demo from './demo/demo-gsap.vue';
+// import Demo from './demo/demo-gsap.vue';
 // import Ceshi from './demo/ceshi.vue';
+import Demo from './demo/watermark-demo.vue';
 
 const flag = ref(true);
 
