@@ -11,6 +11,12 @@
 			"title": "Bootcdn",
 			"desc": "稳定、快速、免费的前端开源项目 CDN 加速服务",
 			"link": "https://www.bootcdn.cn/"
+		},
+    {
+			"icon": "https://nodejs.cn/favicon.svg",
+			"title": "Node.js 中文网",
+			"desc": "中文网集合",
+			"link": "https://nodejs.cn"
 		}
 	],
 	"AI": [
@@ -39,6 +45,12 @@
 			"title": "Element Plus",
 			"desc": "基于 Vue 3，面向设计师和开发者的组件库",
 			"link": "https://element-plus.org"
+		},
+    {
+			"icon": "https://vueuse.org/favicon.svg",
+			"title": "VueUse",
+			"desc": "Vue Composition API 的常用工具库(中文网)",
+			"link": "https://vueuse.nodejs.cn"
 		}
 	],
 	"React 生态": [

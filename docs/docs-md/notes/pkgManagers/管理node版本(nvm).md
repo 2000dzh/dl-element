@@ -1,7 +1,5 @@
 # 管理node版本(nvm)
 
-nvm管理node版本后npm、cnpm、pnpm不是内部或外部指令 解决方案 [文章链接](https://blog.csdn.net/iamkaikai/article/details/133901242)
-
 ## 查看nvm的安装根路径
 
 ```sh
