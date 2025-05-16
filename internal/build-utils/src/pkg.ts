@@ -17,6 +17,7 @@ export const excludeFiles = (files: Array<string>) => {
     // 暂时排除
     // 'map',
     'ring',
+    'tour',
     // 'seamless-scroll'
 	];
 
