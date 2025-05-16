@@ -51,7 +51,7 @@
 			],
 			"require": "./lib/*.js"
 		},
-    "./echarts": {
+		"./echarts": {
 			"types": "./es/echarts.d.ts",
 			"import": "./es/echarts.mjs",
 			"require": "./lib/echarts.js"
@@ -75,6 +75,7 @@
 		"vue": "^3.4.0"
 	},
 	"dependencies": {
+		"@floating-ui/dom": "^1.7.0",
 		"dayjs": "1.11.13",
 		"echarts": "5.5.1",
 		"gsap": "3.12.7",

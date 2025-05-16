@@ -1,18 +1,19 @@
-import { defineConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import path from 'node:path';
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import vueJsx from "@vitejs/plugin-vue-jsx";
+import path from "node:path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [vue()],
-  resolve: {
+	plugins: [vue(), vueJsx()],
+	resolve: {
 		alias: [
 			{
 				find: /^dl-element(\/(es|lib))?$/,
-				replacement: path.resolve(__dirname, '../packages/core/index.ts'),
+				replacement: path.resolve(__dirname, "../packages/core/index.ts")
 			}
-		],
-	},
+		]
+	}
 	// server: {
 	// 	proxy: {
 	// 		'/dl-mapData': {

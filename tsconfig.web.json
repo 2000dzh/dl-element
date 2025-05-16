@@ -6,6 +6,9 @@
 		"composite": true,
 		// 在 .tsx 文件里支持 JSX
 		"jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "jsxImportSource": "vue",
 		// 告诉 TypeScript 编译器要包括哪些环境的类型声明文件（`.d.ts` 文件）
 		"lib": ["ES2018", "DOM", "DOM.Iterable"],
 		// 用于控制是否在编译时跳过对声明文件（.d.ts 文件）的类型检查。
@@ -19,11 +22,11 @@
 	// 指定哪些文件需要打包的时候生成类型文件
 	"include": [
 		"packages",
-		"typings/env.d.ts"
+		"typings/env.d.ts",
 		// "packages/core/index.ts",
 		// "packages/hooks/**/*.ts",
 		// "packages/utils/**/*.ts",
-		// "packages/components/**/*.ts"
+		"packages/components/**/*.tsx"
 	],
 	// exclude表示要排除的、不编译的文件,它也可以指定一个列表,规则和include一样,可以是文件或文件夹,可以是相对路径或绝对路径,可以使用通配符
 	"exclude": [

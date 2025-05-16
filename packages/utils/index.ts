@@ -5,3 +5,5 @@ export * from './vue/index';
 export * from './globalResizeObserver';
 export * from './common';
 export * from './time';
+export * from './dom/index'
+export * from './constants/index'

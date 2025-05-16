@@ -19,7 +19,7 @@
 				"link": "/css/demo",
 				"creationTime": "2025-04-10"
 			},
-      {
+			{
 				"text": "Grid布局",
 				"link": "/css/Grid布局",
 				"creationTime": "2025-04-14"
@@ -98,6 +98,17 @@
 			}
 		]
 	},
+	"构建工具": {
+		"text": "构建工具",
+		"collapsed": "true",
+		"children": [
+			{
+				"text": "vite",
+				"link": "/构建工具/vite",
+				"creationTime": "2025-04-29"
+			}
+		]
+	},
 	"Vue2": {
 		"text": "Vue2",
 		"collapsed": "true",
@@ -107,7 +118,7 @@
 				"link": "/Vue2/小技巧和知识点",
 				"creationTime": "2025-04-09"
 			},
-      {
+			{
 				"text": "vue-cli",
 				"link": "/Vue2/vue-cli",
 				"creationTime": "2025-04-27"
