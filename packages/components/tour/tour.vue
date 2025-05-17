@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, toRef, useSlots } from "vue";
+import { provide, toRef, useSlots, watch } from "vue";
 import { CHANGE_EVENT, UPDATE_MODEL_EVENT } from "@dl-element/utils";
 import { tourEmits, tourProps } from "./tour";
 import DlTourMaskContent from "./mask-content";
@@ -21,6 +21,7 @@ const current = defineModel<number>("current", { default: 0 });
 const {
 	currentStep,
 	total,
+	onUpdateTotal,
 	triggerTarget,
 	mergedPlacement,
 	mergedShowArrow,
@@ -28,7 +29,16 @@ const {
 	mergedMaskStyle,
 	mergedZIndex,
 	mergedPosInfo
-} = useTour(props, emit);
+} = useTour(props);
+
+watch(
+	() => props.modelValue,
+	val => {
+		if (!val) {
+			current.value = 0;
+		}
+	}
+);
 
 provide(tourKey, {
 	currentStep,
@@ -71,7 +81,10 @@ provide(tourKey, {
         :reference="triggerTarget"
         :show-arrow="mergedShowArrow"
       >
-        <dl-tour-steps>
+        <dl-tour-steps
+          :current="current"
+          @update-total="onUpdateTotal"
+        >
           <slot />
         </dl-tour-steps>
       </dl-tour-content>

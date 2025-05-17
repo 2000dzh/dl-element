@@ -55,3 +55,7 @@ export const tourStepProps = {
 };
 
 export type TourStepProps = ExtractPropTypes<typeof tourStepProps>;
+
+export const tourStepEmits = {
+	close: () => true,
+};

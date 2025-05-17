@@ -1,6 +1,13 @@
 packages:
-    # packages/ 直接子目录中的所有包
-    - packages/*
-    - internal/*
-    - docs
-    - play
+  # packages/ 直接子目录中的所有包
+  - packages/*
+  - internal/*
+  - docs
+  - play
+
+catalog:
+  vue: 3.5.14
+
+catalogs:
+  vuep3:
+    vue: 3.5.0

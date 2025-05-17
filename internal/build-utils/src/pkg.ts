@@ -11,14 +11,7 @@ export const excludeFiles = (files: Array<string>) => {
 		'docs',
 		'play',
 		'build',
-    'coverage',
-    // 'theme',
-
-    // 暂时排除
-    // 'map',
-    'ring',
-    'tour',
-    // 'seamless-scroll'
+    'coverage'
 	];
 
 	return files.filter((path) => {

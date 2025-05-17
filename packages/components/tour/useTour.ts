@@ -2,22 +2,22 @@ import { ref, computed, toRef } from "vue";
 import { isBoolean } from "lodash-es";
 import { useZIndex } from "@dl-element/hooks";
 import { useTarget } from "./helper";
-import type { TourEmits, TourProps } from "./tour";
+import type { TourProps } from "./tour";
 import type { TourStepProps } from "./step";
 
-export function useTour(props: TourProps, emit: TourEmits) {
+export function useTour(props: TourProps) {
 	const total = ref(0);
 	const currentStep = ref<TourStepProps>();
 
 	const currentTarget = computed(() => currentStep.value?.target);
 
-  const mergedPlacement = computed(() => currentStep.value?.placement ?? props.placement)
+	const mergedPlacement = computed(() => currentStep.value?.placement ?? props.placement);
 
 	const mergedMask = computed(() => currentStep.value?.mask ?? props.mask);
 	const mergedShowMask = computed(() => !!mergedMask.value && props.modelValue);
 	const mergedMaskStyle = computed(() => (isBoolean(mergedMask.value) ? undefined : mergedMask.value));
 
-  const mergedShowArrow = computed(() => !!currentTarget.value && (currentStep.value?.showArrow ?? props.showArrow))
+	const mergedShowArrow = computed(() => !!currentTarget.value && (currentStep.value?.showArrow ?? props.showArrow));
 
 	const mergedScrollIntoViewOptions = computed(() => currentStep.value?.scrollIntoViewOptions ?? props.scrollIntoViewOptions);
 
@@ -33,18 +33,21 @@ export function useTour(props: TourProps, emit: TourEmits) {
 		mergedScrollIntoViewOptions
 	);
 
- 
+	const onUpdateTotal = (val: number) => {
+		total.value = val;
+	};
 
 	return {
 		currentStep,
 		total,
+		onUpdateTotal,
 
-    triggerTarget,
-    mergedPlacement,
-    mergedShowArrow,
+		triggerTarget,
+		mergedPlacement,
+		mergedShowArrow,
 		mergedShowMask,
 		mergedMaskStyle,
 		mergedZIndex,
-		mergedPosInfo,
+		mergedPosInfo
 	};
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, inject, watch } from "vue";
-import { tourStepProps } from "./step";
+import { tourStepProps, tourStepEmits } from "./step";
 import { tourKey } from "./helper";
 
 defineOptions({
@@ -8,6 +8,7 @@ defineOptions({
 });
 
 const props = defineProps(tourStepProps);
+const emit = defineEmits(tourStepEmits);
 
 const {
 	currentStep,
@@ -21,19 +22,44 @@ const {
 	onChange
 } = inject(tourKey)!;
 
+const mergedShowClose = computed(() => props.showClose ?? showClose.value);
+
 watch(
 	props,
 	val => {
-    console.log(val)
 		currentStep.value = val;
 	},
 	{
 		immediate: true,
-    flush: 'sync'
+		flush: "sync"
 	}
 );
 
-const mergedShowClose = computed(() => props.showClose ?? showClose.value);
+const onPrev = () => {
+	current.value -= 1;
+	onChange();
+};
+
+const onNext = () => {
+	if (current.value >= total.value - 1) {
+		onFinish();
+	} else {
+		current.value += 1;
+	}
+
+	onChange();
+};
+
+const onFinish = () => {
+	onClose();
+	tourOnFinish();
+};
+
+const onClose = () => {
+	updateModelValue(false);
+	tourOnClose();
+	emit("close");
+};
 </script>
 
 <template>
@@ -41,6 +67,7 @@ const mergedShowClose = computed(() => props.showClose ?? showClose.value);
     v-if="mergedShowClose"
     type="button"
     class="dl-tour__closebtn"
+    @click="onClose"
   >
     关闭
   </button>
@@ -87,12 +114,17 @@ const mergedShowClose = computed(() => props.showClose ?? showClose.value);
       <button
         v-if="current > 0"
         type="button"
+        @click="onPrev"
       >
         上一步
       </button>
 
-      <button type="button">
-        下一步
+      <button
+        v-if="current <= total - 1"
+        type="button"
+        @click="onNext"
+      >
+        {{ current === total - 1 ? "完成" : "下一步" }}
       </button>
     </div>
   </footer>

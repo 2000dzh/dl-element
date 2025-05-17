@@ -6,6 +6,6 @@
 		"clean:node-modules": "rimraf node_modules"
 	},
 	"peerDependencies": {
-		"vue": "^3.4.0"
+		"vue": "catalog:vuep3"
 	}
 }

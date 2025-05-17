@@ -4,6 +4,8 @@ declare module "vue" {
 		DlLoadCure: (typeof import("dl-element"))["DlLoadCure"];
 		DlSeamlessScroll: (typeof import("dl-element"))["DlSeamlessScroll"];
 		DlWatermark: (typeof import("dl-element"))["DlWatermark"];
+		DlTour: (typeof import("dl-element"))["DlTour"];
+		DlTourStep: (typeof import("dl-element"))["DlTourStep"];
 	}
 
 	interface ComponentCustomProperties {

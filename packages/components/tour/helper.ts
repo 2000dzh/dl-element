@@ -175,6 +175,7 @@ export function useFloating(
 
 		(Object.keys(states) as Array<keyof typeof states>).forEach(key => {
 			if (isRef(states[key])) {
+        // @ts-ignore
 				states[key].value = data[key];
 			}
 		});
