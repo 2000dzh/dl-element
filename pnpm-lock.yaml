@@ -4,16 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-catalogs:
-  default:
-    vue:
-      specifier: 3.5.14
-      version: 3.5.14
-  vuep3:
-    vue:
-      specifier: 3.5.0
-      version: 3.5.0
-
 importers:
 
   .:

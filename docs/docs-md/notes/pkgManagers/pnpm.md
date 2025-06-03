@@ -45,6 +45,8 @@ monorepo 的简单理解就是单仓库多包管理
 
 pnpm 并不是通过目录名称，而是通过目录下 package.json 文件的 name 字段来识别仓库内的包与模块的
 
+(--filter 可以简写 -F)
+
 ### 创建 pnpm-workspace.yaml 文件
 
 Windows
@@ -69,4 +71,32 @@ pnpm --filter a add axios
 
 ```sh
 pnpm --filter a remove axios
+```
+
+### 内部包之间相关引用
+
+```sh
+pnpm --filter a add b@workspace:*
+```
+
+## pnpm link(使用方案)
+
+创建基础库的全局链接
+```sh
+pnpm link --global
+```
+
+项目中使用
+```sh
+pnpm link  --global 基础库项目名称
+```
+
+删除项目中对基础库的引用
+```sh
+pnpm unlink 基础库项目名称
+```
+
+删除基础库的全局链接
+```sh
+pnpm uninstall --global 基础库项目名称
 ```
