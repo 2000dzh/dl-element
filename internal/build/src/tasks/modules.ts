@@ -33,7 +33,7 @@ const plugins = [
 			vueJsx: vueJsx()
 		}
 	}),
-	// 自动查找扩展名
+	// 帮助 Rollup 解析 node_modules 中的模块
 	nodeResolve({
 		extensions: [".mjs", ".js", ".json", ".ts"]
 	}),
