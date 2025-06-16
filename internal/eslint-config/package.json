@@ -1,18 +1,21 @@
 {
-	"name": "@dl-element/eslint-config",
+	"name": "eslint-config-vue-dzh",
 	"version": "1.0.0",
 	"description": "ESLint Config",
 	"license": "MIT",
-  "files": [
-    "index.js"
-  ],
-  "main": "index.js",
+	"files": [
+		"index.js"
+	],
+	"main": "index.js",
+	"publishConfig": {
+		"access": "public"
+	},
 	"scripts": {
 		"clean:node-modules": "rimraf node_modules"
 	},
-  "peerDependencies": {
-    "eslint": "^8.0.0"
-  },
+	"peerDependencies": {
+		"eslint": "^8.0.0"
+	},
 	"dependencies": {
 		"@typescript-eslint/eslint-plugin": "8.9.0",
 		"@typescript-eslint/parser": "8.9.0",
