@@ -17,6 +17,12 @@
 			"title": "Node.js 中文网",
 			"desc": "中文网集合",
 			"link": "https://nodejs.cn"
+		},
+    {
+			"icon": "https://www.jshaman.com/images/svg/ani_30.svg",
+			"title": "JShaman",
+			"desc": "专注JS混淆加密9年 无需注册、不用登录直接使用 专业、方便",
+			"link": "https://www.jshaman.com/"
 		}
 	],
 	"AI": [

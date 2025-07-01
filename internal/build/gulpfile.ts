@@ -33,7 +33,7 @@ export const copyFullStyle = async () => {
  */
 export default series(
 	// 删除 dist
-	withTaskName("clean:dist", () => run("pnpm run clean:dist")),
+	// withTaskName("clean:dist", () => run("pnpm run clean:dist")),
 	// 创建dist目录
 	withTaskName("createOutput", () => mkdir(buildOutput, { recursive: true })),
 
