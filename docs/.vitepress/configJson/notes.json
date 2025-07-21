@@ -1,4 +1,9 @@
 {
+  "git": {
+    "text": "git",
+		"collapsed": "false",
+    "children": []
+  },
 	"JavaScript": {
 		"text": "你不知道的javaScript",
 		"collapsed": "false",
