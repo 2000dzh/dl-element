@@ -16,20 +16,9 @@
 		]
 	},
 	"css": {
-		"text": "css",
+		"text": "css相关",
 		"collapsed": "true",
-		"children": [
-			{
-				"text": "demo",
-				"link": "/css/demo",
-				"creationTime": "2025-04-10"
-			},
-			{
-				"text": "Grid布局",
-				"link": "/css/Grid布局",
-				"creationTime": "2025-04-14"
-			}
-		]
+		"children": []
 	},
 	"utils": {
 		"text": "工具函数",

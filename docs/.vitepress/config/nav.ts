@@ -3,11 +3,23 @@ import type { DefaultTheme } from "vitepress";
 
 let nav: Array<DefaultTheme.NavItem> = [{ text: "前端导航", link: "/nav" }];
 
-nav = nav.concat(
-	addLinkPrefix<DefaultTheme.NavItem>([
-		{ text: "常用组件", link: "/component/overview" },
-		{ text: "笔记", link: "/notes/JavaScript/关于闭包" }
-	])
-);
+nav = nav
+  .concat(
+    addLinkPrefix<DefaultTheme.NavItem>([
+      { text: "常用组件", link: "/component/overview" },
+      { text: "笔记", link: "/notes/JavaScript/关于闭包" }
+    ])
+  )
+  .concat([
+    {
+      text: "常用案例",
+      items: addLinkPrefix([
+        {
+          text: "布局demo",
+          link: "/demo/layout-demo/indicator-statistics"
+        }
+      ])
+    }
+  ]);
 
 export default nav;

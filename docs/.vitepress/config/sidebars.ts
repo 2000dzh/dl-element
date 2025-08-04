@@ -1,6 +1,7 @@
 import { MD_NAME } from "../utils/constants";
 import componentLocale from "../configJson/component.json";
 import notesLocale from "../configJson/notes.json";
+import layoutDemo from '../configJson/layout-demo.json'
 
 type Item = {
 	text: string;
@@ -29,7 +30,8 @@ function getSidebarData(data: Record<string, Item>, prefix = "") {
 const getSidebars = () => {
 	const info = {
 		"/component/": getSidebarData(componentLocale, "component"),
-		"/notes/": getSidebarData(notesLocale, "notes")
+		"/notes/": getSidebarData(notesLocale, "notes"),
+		"/demo/layout-demo/": getSidebarData(layoutDemo, "demo/layout-demo"),
 	};
 
 	// 数据示例
