@@ -18,6 +18,7 @@ log
 /cyperss/videos/
 /cypress/srceenshots/
 
+docs/stats.html
 .vitepress/dist
 .vitepress/cache
 
