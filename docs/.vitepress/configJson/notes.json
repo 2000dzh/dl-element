@@ -2,7 +2,13 @@
   "git": {
     "text": "git",
 		"collapsed": "false",
-    "children": []
+    "children": [
+      {
+        "text": "git 相关技巧",
+        "link": "/git/git相关技巧",
+        "creationTime": "2025-08-12"
+      }
+    ]
   },
 	"JavaScript": {
 		"text": "你不知道的javaScript",
@@ -14,11 +20,6 @@
 				"creationTime": "2025-04-03"
 			}
 		]
-	},
-	"css": {
-		"text": "css相关",
-		"collapsed": "true",
-		"children": []
 	},
 	"utils": {
 		"text": "工具函数",

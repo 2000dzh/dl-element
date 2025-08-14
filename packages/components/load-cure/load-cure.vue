@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, useTemplateRef, watch } from "vue";
+import { nextTick, shallowRef, useTemplateRef, watch } from "vue";
 import dayjs from "dayjs";
 import { isArray } from "lodash-es";
 import { zeroFill } from "@dl-element/utils";
@@ -34,7 +34,7 @@ const getTimeData = (xAxisData: lineData["xAxisData"], seriesData: lineData["ser
 			return {
 				...val,
 				data: newData,
-        // 写死曲线
+				// 写死曲线
 				type: "line"
 			};
 		});
@@ -197,17 +197,15 @@ const getOptions = () => {
 	return options;
 };
 
-const loadOptions = ref(getOptions());
+const loadOptions = shallowRef(getOptions());
 
+// 只做引用监听!
 watch(
-	[() => props.lineData],
+	() => props.lineData,
 	async () => {
 		loadOptions.value = getOptions();
 		await nextTick();
 		childRef.value?.updateChartOptions();
-	},
-	{
-		deep: true
 	}
 );
 </script>

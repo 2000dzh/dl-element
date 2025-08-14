@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref } from "vue";
 import { time48, time96, time288, time1440, time24 } from "@dl-element/utils";
 
@@ -19,25 +19,114 @@ const show = ref(true);
 
 const lineData = ref<any>({
 	xAxisData: time96(),
-	seriesData: [],
+	seriesData: [
+		{
+			name: "测试曲线1",
+			data: Array.from({ length: 288 }, (_, index) => index + 100)
+		}
+	],
 	unit: []
 });
 
 async function init() {
-	await new Promise(resolve => setTimeout(resolve, 3000));
-	lineData.value.seriesData = [
-		{
-			name: "测试曲线1",
-			data: Array.from({ length: 288 }, (_, index) => index + 100)
-		},
-		{
-			name: "测试曲线2",
-			data: Array.from({ length: 288 }, (_, index) => index + 200)
-		}
-	];
+	await new Promise(resolve => setTimeout(resolve, 1000));
+	// lineData.value.seriesData = [
+	// 	{
+	// 		name: "测试曲线1",
+	// 		data: Array.from({ length: 288 }, (_, index) => index + 100)
+	// 	},
+	// 	{
+	// 		name: "测试曲线2",
+	// 		data: Array.from({ length: 288 }, (_, index) => index + 200)
+	// 	}
+	// ];
+	// lineData.value.seriesData[0].data[0] = 200
+
+	lineData.value = {
+		xAxisData: time96(),
+		seriesData: [
+			{
+				name: "测试曲线1",
+				data: Array.from({ length: 288 }, (_, index) => index + 100)
+			},
+			{
+				name: "测试曲线2",
+				data: Array.from({ length: 288 }, (_, index) => index + 200)
+			}
+		],
+		unit: []
+	};
 }
 
 init();
+</script> -->
+
+<script>
+import { time48, time96, time288, time1440, time24 } from "@dl-element/utils";
+
+export default {
+	name: "ceshimapdemo1",
+	data() {
+		return {
+			mapName: "江苏",
+			seriesData: [
+				{
+					name: "南京市",
+					value: 2112
+				},
+				{
+					name: "苏州市",
+					value: 23
+				}
+			],
+			lineData: {
+				xAxisData: time96(),
+				seriesData: [
+					{
+						name: "测试曲线1",
+						data: Array.from({ length: 288 }, (_, index) => index + 100)
+					}
+				],
+				unit: []
+			}
+		};
+	},
+	created() {
+		async function init() {
+			await new Promise(resolve => setTimeout(resolve, 1000));
+			// lineData.value.seriesData = [
+			// 	{
+			// 		name: "测试曲线1",
+			// 		data: Array.from({ length: 288 }, (_, index) => index + 100)
+			// 	},
+			// 	{
+			// 		name: "测试曲线2",
+			// 		data: Array.from({ length: 288 }, (_, index) => index + 200)
+			// 	}
+			// ];
+			// lineData.value.seriesData[0].data[0] = 200
+
+			this.lineData = {
+				xAxisData: time96(),
+				seriesData: [
+					{
+						name: "测试曲线1",
+						data: Array.from({ length: 288 }, (_, index) => index + 100)
+					},
+					{
+						name: "测试曲线2",
+						data: Array.from({ length: 288 }, (_, index) => index + 200)
+					}
+				],
+				unit: []
+			};
+		}
+
+		init.call(this);
+
+    console.log(this)
+	}
+};
 </script>
 
 <template>
