@@ -10,7 +10,6 @@ import type { LoadCureOption, lineData } from "./type";
 defineOptions({
 	name: "DlLoadCure"
 });
-
 const props = defineProps(LoadCureProps);
 
 const childRef = useTemplateRef<InstanceType<typeof EchartsCommon>>("child");
